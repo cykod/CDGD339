@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Information Architecture - Web 2 CDGD339</title>
+	<meta name="viewport" content="width=1024">
+
+        <link rel="stylesheet" href="dist/coderdeck-core.min.css" type="text/css">
+	<link rel="stylesheet" id='style-theme-link' href="dist/coderdeck.css" type="text/css" >
+
+	<script src='dist/jquery.min.js'></script>
+	<script src="dist/modernizr.js"></script>
+</head>
+<body class="deck-container">
+
+<script type='text/coderdeck' id='coderdeck-default'>
+  <html>
+    <head>
+      <script src='dist/jquery.min.js'>SCRIPTEND
+    </head>
+    <body>
+	    CODE
+    </body>
+</html>
+</script>
+
+
+<script type='text/coderdeck' id='coderdeck-style-example'>
+	<html>
+		<title>test</title>
+		<style>
+			CODE
+		</style>
+		<body>
+			<h1>I'm a H1 heading</h1>
+			<h2>I'm a H2 heading</h2>
+			<p>Pargraph of text &lt;p&gt; here</p>
+			<div class='stuff'>I'm a div &lt;div&gt; with class "stuff"</div>
+			<div id='my-div'>I'm a &lt;div&gt; with id "my-div"</div>
+		</body>
+	</html>
+</script> 	
+
+<article class='slide slide-subhead'>
+<h1>MassArt Web 2 </h1>
+
+<h2>
+  Information Architecture<br/>
+  <a href='http://bit.ly/massart-web2-2'>http://bit.ly/massart-web2-2</a>
+</h2>
+</article>
+
+
+<!-- Apply a class of "coder-editor" to a textarea to make it show up as runnable code -->
+<article class='slide slide-list'>
+<h2>Today</h2>
+<ul>
+  <ul>
+  	<li class="slide">
+  		<h3>Review Homework</h3>
+  	</li>
+  	<li class="slide">
+  		<h3>Information Architecture</h3>
+  	</li>
+  	<li class="slide">
+  		<h3>User Expectations</h3>
+  	</li>
+  	<li class="slide">
+  		<h3>Wireframing</h3>
+  	</li>
+  	<li class="slide">
+  		<h3>Grids</h3>
+  	</li>
+  </ul>
+</ul>
+</article>
+
+
+<script>
+(function($){
+ 
+    $.fn.shuffle = function() {
+ 
+        var allElems = this.get(),
+            getRandom = function(max) {
+                return Math.floor(Math.random() * max);
+            },
+            shuffled = $.map(allElems, function(){
+                var random = getRandom(allElems.length),
+                    randEl = $(allElems[random]).clone(true)[0];
+                allElems.splice(random, 1);
+                return randEl;
+           });
+ 
+        this.each(function(i){
+            $(this).replaceWith($(shuffled[i]));
+        });
+ 
+        return $(shuffled);
+ 
+    };
+ 
+})(jQuery);
+
+function shuffleHomework(amt) {
+	if(amt <= 0) return;
+	$("#homework li").shuffle();
+	setTimeout(function() { shuffleHomework(amt - 1); },200);
+}
+
+	</script>
+
+<article class='slide slide-list'>
+<h2>Homework Review</h2>
+	<a href='javascript:shuffleHomework(10);'>Shuffle</a>
+<ul>
+  <ul id='homework'>
+  	<li >
+    <h3>Aimee <a href='http://aimeeb.github.com/'>http://aimeeb.github.com/</a></h3>
+  	</li>
+  	<li >
+    <h3>Christina <a href='http://cmyung.github.com'>http://cmyung.github.com</a></h3>
+  	</li>
+  	<li >
+    <h3>Leah <a href='http://leahbrunetto.github.com'>http://leahbrunetto.github.com</a></h3>
+  	</li>
+  	<li >
+    <h3>Meggles <a href='http://Meggles.github.com/Web-339/'>http://Meggles.github.com/Web-339/</a></h3>
+  	</li>
+  	<li >
+    <h3>Cheryl <a href='http://cmccaffrey.github.com/'>http://cmccaffrey.github.com/</a></h3>
+  	</li>
+  	<li >
+    <h3>Lauren <a href='http://laz231.github.com/'>http://laz231.github.com/</a></h3>
+  	</li>
+  	<li >
+    <h3>Rebecca <a href='http://salonstress.github.com'>http://salonstress.github.com</a></h3>
+  	</li>
+  	<li >
+    <h3>Amanda <a href='http://acacheung.github.com'>http://acacheung.github.com</a></h3>
+  	</li>
+  </ul>
+</article>
+
+<article class='slide slide-subhead'>
+	<h1>What is Web design?</h1>
+	<blockquote class='slide'>
+Web design is the creation of digital 
+environments that facilitate and encourage 
+human activity; reflect or adapt to individual 
+voices and content; and change gracefully over 
+time while always retaining their identity.<br/>
+&nbsp;&nbsp;- alistapart.com/articles/understandingwebdesign
+	</blockquote>
+</article>
+	
+<article class="slide slide-subhead">
+	<h1>A Website is not a book!</h1>
+</article>
+
+<article class='slide slide-list'>
+<h2>You are design for people...</h2>
+<ul>
+	<li class="slide"><h3>with Modern browsers</h3></li>
+	<li class="slide"><h3>with old browsers</h3></li>
+	<li class="slide"><h3>who can’t see well</h3></li>
+	<li class="slide"><h3>who can’t see at all</h3></li>
+	<li class="slide"><h3>who visit your site every day</h3></li>
+	<li class="slide"><h3>who are visiting for the ﬁrst time</h3></li>
+	<li class="slide"><h3>who aren’t people but machines (SEO)</h3></li>
+</ul>
+</article>
+
+<article class="slide slide-accent">
+<h1>You are also designing for<br/> <em>2011 Web Surfers</em></h1>
+</article>
+
+<article class='slide slide-subhead'>
+<h1>What is this?</h2>
+<h2><br/><br/>
+	<a style='color:#0645AD; text-decoration:underline; font-family:Arial; font-size:60px;' href='#'>My Article</a>
+</h2>
+</article>
+
+<article class='slide slide-subhead'>
+<h1>Feed into<br/>User Expectations</h1>
+</article>
+
+<article class='slide slide-list'>
+<h2>Good Conventions</h2>
+<ul>
+	<li class="slide">
+		<h3>Underline is a link</h3>
+	</li>
+	<li class="slide">
+		<h3>@something</h3>
+	</li>
+	<li class="slide">
+		<h3>name@something.com</h3>
+	</li>
+	<li class="slide">
+		<h3>google.com</h3>
+	</li>
+	<li class="slide">
+		<h3>Where is the login link?</h3>
+	</li>
+	<li class="slide">
+		<h3>What does clicking the logo do?</h3>
+	</li>
+	<li class="slide">
+		<h3>What does the back button do?</h3>
+	</li>
+	<li class="slide">
+		<h3>What does dragging over text do?</h3>
+	</li>
+	<li class="slide">
+		<h3>Standard names “Contact Us”, “About Us”</h3>
+	</li>
+	<li class="slide">
+		<h3>Extra links - like “Privacy Policy”, “Terms of Use” are where?</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Some Bad Conventions</h2>
+<ul>
+	<li class="slide">
+		<h3>Interior Scrollbars</h3>
+	</li>
+	<li class="slide">
+		<h3>No scrollbars</h3>
+	</li>
+	<li class="slide">
+		<h3>Frames</h3>
+	</li>
+	<li class="slide">
+		<h3>Auto-playing media</h3>
+	</li>
+	<li class="slide">
+		<h3>No back button</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Layouts</h2>
+<ul>
+	<li class="slide">
+		<h3>Also something where conventions are important</h3>
+	</li>
+	<li class="slide">
+		<h3>1 column, 2 column, 3 column, 4 column - examples?</h3>
+	</li>
+	<li class="slide">
+		<h3>ﬁxed width vs. ﬂuid - why?</h3>
+	</li>
+  <li class='slide'>
+    <h3>Responsive, not responsive</h3>
+  </li>
+</ul>
+</article>
+
+
+<article class='slide slide-list'>
+<h2>Grid Systems</h2>
+<ul>
+	<li class="slide">
+		<h3>Great for getting started</h3>
+	</li>
+	<li class="slide">
+		<h3>Easily create a visual hierarchy</h3>
+	</li>
+	<li class="slide">
+		<h3>Good at creating ﬂow throughout the page</h3>
+	</li>
+	<li class="slide">
+		<h3>Great for fixed and ﬂuid layouts</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-subhead'>
+<h1><a href='http://960.gs/'>http://960.gs/</a></h1>
+<h2>Easy to design for, start with a template for Illustrator, Photoshop, etc.<br/>
+	Easy to Generate CSS for 12 or 16 columns</h2>
+</article>
+
+<article class='slide slide-subhead'>
+<h1><a href='http://cssgrid.net/'>http://cssgrid.net/</a></h1>
+<h2>Fluid Grids, more challenging to design for but better results across different formants</h2>
+</article>
+
+<article class='slide slide-accent'>
+<h1>Information Architecture</h1>
+<h1 class='slide'>is a big word...</h1>
+</article>
+
+
+<article class='slide slide-list'>
+<h2>things to think about</h2>
+<ul>
+	<li class="slide">
+		<h3>Your site navigation - main, bottom, etc</h3>
+	</li>
+	<li class="slide">
+		<h3>What do users want to see?</h3>
+	</li>
+	<li class="slide">
+		<h3>What do users need to see?</h3>
+	</li>
+	<li class="slide">
+		<h3>Does the site hierarchy make sense?</h3>
+	</li>
+	<li class="slide">
+		<h3>How may clicks deep?</h3>
+	</li>
+	<li class="slide">
+		<h3>Think about normal user ﬂow: "User Stories"</h3>
+	</li>
+</ul>
+</article>
+
+
+
+
+<article class='slide slide-subhead'>
+<h1>user stories</h1>
+</article>
+
+<article class='slide slide-list'>
+<h2>User stories, think about:</h2>
+<li class="slide">
+	<h3>Who is visiting your site (give them a name)</h3>
+</li>
+<li class="slide">
+	<h3>Their goals and how they got to your site</h3>
+</li>
+<li class="slide">
+	<h3>How can you help them and keep them interested?</h3>
+</li>
+</article>
+
+
+
+<article class='slide slide-list'>
+  <h2>Questions:</h2>
+  <ul>
+	<li class="slide">
+  <h3>What color should a call to action button be?</h3>
+	</li>
+	<li class="slide">
+  <h3>How many paragraphs of text above the fold?</h3>
+	</li>
+	<li class="slide">
+  <h3>What works better images or videos to explain a product?</h3>
+	</li>
+	<li class="slide">
+  <h3>How many quotes from satisfied customers do you need?</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-subhead'>
+  <h1>You are wrong</h1>
+</article>
+
+<article class='slide slide-subhead'>
+  <h1>Are all users you?</h1>
+</article>
+
+<article class='slide slide-subhead'>
+  <h1>Are all users the same?</h1>
+</article>
+
+<article class='slide slide-list'>
+  <h2>User Types</h2>
+  <ul>
+	<li class="slide">
+		<h3>Competitive/Assertive</h3>
+    <p>How will this help me be better? help me win?</p>
+	</li>
+	<li class="slide">
+		<h3>Spontaneous/Amiable</h3>
+    <p>What is this in 3 seconds? Why should I use it?</p>
+	</li>
+	<li class="slide">
+		<h3>Humanistic/Expressive</h3>
+    <p>Who else is using it? Where's the social proof?</p>
+	</li>
+	<li class="slide">
+		<h3>Methodical/Analytical</h3>
+    <p>Where's the scientific proof? Where's the whitepaper?</p>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-subhead'>
+  <h1>Always Be Testing</h1>
+  <h2><a href='http://www.google.com/websiteoptimizer'></a></h2>
+</article>
+
+
+<article slide class="slide slide-accent">
+	<h1>Wireframes & Sitemaps</h2>
+</article>
+
+<article style='background-image:url(images/sitemap.png);' class='slide slide-background-content'>
+<h2>Sitemaps</h2>
+</article>	
+<article class='slide slide-list'>
+<h1>Why Make Sitemaps?</h1>
+	<ul>
+		<li class="slide">
+			<h3>Help you define the content on your site</h3>
+		</li>
+		<li class="slide">
+			<h3>Force you to break down all the pages and sections of your site</h3>
+		</li>
+		<li class="slide">
+			<h3>They help you work out how content will be organized</h3>
+		</li>
+		<li class="slide">
+			<h3>Help you create a better hierarchy</h3>
+		</li>	
+	</ul>		
+</article>
+
+
+
+<article class='slide slide-subhead'>
+<h1>Wireframing</h1>
+<h2>Great way to look at the big picture.<br/>
+ Don't start with a perfect mockup, do something crude and basic first.
+</h2>
+</article>
+
+<article class='slide slide-list'>
+<h2>Some tools</h2>
+<ul>
+	<li class='slide'><h3><a href='http://balsamiq.com/products/mockups'>Balsamiq</a></h3></li>
+	<li class='slide'><h3><a href='https://gomockingbird.com/'>Mockingbird</a></h3></li>
+	<li class='slide'><h3><a href='http://www.omnigroup.com/products/omnigraffle/'>Omnigrafﬂe</a></h3></li>
+	<li class='slide'><h3>Free: <a href='http://mashable.com/2010/07/15/wireframing-tools/'>Mashable Article</a></h3></li>
+	<li class='slide'><h3>Big piece of paper and sharpie</h3></li>
+</ul>
+</article>
+
+
+<article class='slide slide-list'>
+  <h2>This Week</h2>
+  <ul>
+  	<li class="slide">
+  		<h3>Research 3 real groups for your 3 sites</h3>
+  	</li>
+  	<li class="slide">
+  		<h3>One: a park - can be big (yellowstone), can be small and local, can be a brown patch of grass</h3>
+  	</li>
+  	<li class="slide">
+  		<h3>Two: a local small business (not a chain) that you walk by or frequent</h3>
+  	</li>
+  	<li class="slide">
+    <h3>Three: a lobbying group (real or <a href='http://mustache.libertyconcepts.com/'>imagined</a>)</h3>
+  	</li>
+  	<li class="slide">
+  		<h3>Create a file describing your choice and link as described above</h3>
+  	</li>
+  </ul>
+</article>
+
+
+
+<script src='dist/coderdeck.min.js'></script>
+
+<script>
+	$(function() {
+		$.deck('.slide');
+	});
+</script>
+</body>
+</html>
