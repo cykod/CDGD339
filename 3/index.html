@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>HTML/CSS - Web 3 CDGD339</title>
+	<meta name="viewport" content="width=1024">
+
+        <link rel="stylesheet" href="dist/coderdeck-core.min.css" type="text/css">
+  <link rel="stylesheet" id='style-theme-link' href="css/coderdeck.css" type="text/css" >
+
+  <script type="text/javascript" src="http://use.typekit.com/idq2tqo.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+	<script src='dist/jquery.min.js'></script>
+	<script src="dist/modernizr.js"></script>
+</head>
+<body class="deck-container">
+
+<script type='text/coderdeck' id='coderdeck-default'>
+  <html>
+    <head>
+      <script src='dist/jquery.min.js'>SCRIPTEND
+    </head>
+    <body>
+	    CODE
+    </body>
+</html>
+</script>
+
+<script type='text/coderdeck' id='coderdeck-css-playground'>
+	<html>
+		<title>test</title>
+			CODE
+		<body>
+			<h1>I'm a H1 heading</h1>
+			<h2>I'm a H2 heading</h2>
+			<p>Pargraph of text &lt;p&gt;</p>
+			<div class='stuff'>&lt;div&gt; with class "stuff"</div>
+			<div id='my-div'>&lt;div&gt; with id "my-div"</div>
+		</body>
+	</html>
+</script>
+
+
+<script type='text/coderdeck' id='coderdeck-plain'>
+	<html>
+		<title>test</title>
+		<link rel="stylesheet" href="reset.css">
+		<body>
+			CODE
+		</body>
+	</html>
+</script>
+
+
+
+<script type='text/coderdeck' id='coderdeck-style-example'>
+	<html>
+		<title>test</title>
+		<style>
+			CODE
+		</style>
+		<body>
+			<h1>I'm a H1 heading</h1>
+			<h2>I'm a H2 heading</h2>
+			<p>Pargraph of text &lt;p&gt; here</p>
+			<div class='stuff'>I'm a div &lt;div&gt; with class "stuff"</div>
+			<div id='my-div'>I'm a &lt;div&gt; with id "my-div"</div>
+		</body>
+	</html>
+</script> 	
+
+<article class='slide slide-subhead'>
+<h1>MassArt Web 2 </h1>
+
+<h2>
+  HTML and CSS<br/>
+  <a href='http://bit.ly/massart-web2-3'>http://bit.ly/massart-web2-3</a>
+</h2>
+</article>
+
+
+<!-- Apply a class of "coder-editor" to a textarea to make it show up as runnable code -->
+<article class='slide slide-list'>
+<h2>Today</h2>
+<ul>
+  <ul>
+  	<li class="slide">
+  		<h3>Review Homework</h3>
+  	</li>
+  	<li class="slide">
+  		<h3>HTML Basics</h3>
+  	</li>
+    <li class="slide">
+			<h3>HTML5 Semantic Structure</h3>
+		</li>
+		<li class="slide">
+			<h3>The Perfect Chop</h3>
+		</li>
+    <li class="slide">
+			<h3>CSS in Depth</h3>
+		</li>
+		<li class="slide">
+			<h3>Layout Basics</h3>
+		</li>
+		<li class="slide">
+			<h3>CSS Styling</h3>
+		</li>
+  </ul>
+</ul>
+</article>
+
+
+<script>
+(function($){
+ 
+    $.fn.shuffle = function() {
+ 
+        var allElems = this.get(),
+            getRandom = function(max) {
+                return Math.floor(Math.random() * max);
+            },
+            shuffled = $.map(allElems, function(){
+                var random = getRandom(allElems.length),
+                    randEl = $(allElems[random]).clone(true)[0];
+                allElems.splice(random, 1);
+                return randEl;
+           });
+ 
+        this.each(function(i){
+            $(this).replaceWith($(shuffled[i]));
+        });
+ 
+        return $(shuffled);
+ 
+    };
+ 
+})(jQuery);
+
+function shuffleHomework(amt) {
+	if(amt <= 0) return;
+	$("#homework li").shuffle();
+	setTimeout(function() { shuffleHomework(amt - 1); },200);
+}
+
+	</script>
+
+<article class='slide slide-list'>
+<h2>Homework Review</h2>
+	<a href='javascript:shuffleHomework(10);'>Shuffle</a>
+<ul>
+  <ul id='homework'>
+  	<li >
+    <h3>Aimee <a href='http://aimeeb.github.com/'>http://aimeeb.github.com/</a></h3>
+  	</li>
+  	<li >
+    <h3>Christina <a href='http://cmyung.github.com'>http://cmyung.github.com</a></h3>
+  	</li>
+  	<li >
+    <h3>Leah <a href='http://leahbrunetto.github.com'>http://leahbrunetto.github.com</a></h3>
+  	</li>
+  	<li >
+    <h3>Meggles <a href='http://Meggles.github.com/Web-339/'>http://Meggles.github.com/Web-339/</a></h3>
+  	</li>
+  	<li >
+    <h3>Cheryl <a href='http://cmccaffrey.github.com/'>http://cmccaffrey.github.com/</a></h3>
+  	</li>
+  	<li >
+    <h3>Lauren <a href='http://laz231.github.com/'>http://laz231.github.com/</a></h3>
+  	</li>
+  	<li >
+    <h3>Rebecca <a href='http://salonstress.github.com'>http://salonstress.github.com</a></h3>
+  	</li>
+  	<li >
+    <h3>Amanda <a href='http://acacheung.github.com'>http://acacheung.github.com</a></h3>
+  	</li>
+    <li>
+    <h3>Kristina <a href='http://kristinasym.github.com'>http://kristinasym.github.com</a></h3>
+  </ul>
+</article>
+
+
+
+<article class='slide slide-subhead'>
+	<h1>HTML</h1>
+	<h2>Hypertext Markup Language</h2>
+	<p>HTML is a markup language, which means you're annotating (marking up) plain text to give it structure and meaning, similar to the way you would underline or make notes in a book.</p>
+</article>
+
+<article class='slide slide-list'>
+<h1>HTML "1.0"</h1>
+<ul>
+	<li class="slide">
+		<h3>Original draft from 1992</h3>
+	</li>
+	<li class="slide">
+		<h3>20 Tags, including: section, h1-h6, p, a, menu, ul, ol, dir, li, dl dt, dd</h3>
+	</li>
+	<li class="slide">
+		<h3>How stuff was displayed was left up to the browser</h3>
+	</li>
+	<li class="slide">
+		<h3>Was more concerned with “Semantic” markup of documents</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h1>The Browser War, Round 1</h1>
+<ul>
+	<li class="slide">
+		<h3>Mozilla vs. Microsoft.
+		</h3>
+	</li>
+	<li class="slide">
+		<h3>Started adding features fast and furious</h3>
+	</li>
+	<li class="slide">
+		<h3>Lots of incompatabilities</h3>
+			</li>
+	<li class="slide">		
+		<h3><img src="images/browsers.jpg" alt="browser logos" class='top-image'/></h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h1>XHTML</h1>
+<ul>
+	<li class="slide">
+		<h3>Reaction to “looseness” of HTML</h3>
+	</li>
+	<li class="slide">
+		<h3>A XHTML page is a valid XML document</h3>
+	</li>
+	<li class="slide">
+		<h3>In XHTML 4.0 Strict, document won’t render if there’s a mistake in the HTML</h3>
+	</li>
+	<li class="slide">
+		<h3>Boring...Coming down from the W3C</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h1>HTML5 and The New Hope</h1>
+<ul>
+	<li class="slide">
+		<h3>Previous versions of HTML came from the IETF (Now Defunct) and W3C</h3>
+	</li>
+	<li class="slide">
+		<h3>2004: There was a rebellion over XHTML (non-backwards compatible version of HTML)</h3>
+	</li>
+	<li class="slide">
+		<h3>WHATWG Formed (Apple, Mozilla, Opera)</h3>
+	</li>
+	<li class="slide">
+		<h3>2007: Adopts HTML5, drops XHTML</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-image'>
+	<h3><img src="images/html5-shield-1.jpg" class='top-image'/></h3>
+	<h1>HTML5</h1>
+	<p>Last numbered version of HTML<br/>
+	Browser makers driving features<br/>
+	Feature coming fast and furious</p>
+	<p class="slide"><span class="callout">We’re in Browser Wars, Round #2</span></p>
+</article>
+
+
+<article class='slide slide-list'>
+<h1>New in "HTML5"</h1>
+<ol>
+	<li class="slide">
+		<h3>New Semantic Tags</h3>
+	</li>
+	<li class="slide">
+		<h3>Hardware Accelerated 2D + 3D Graphics</h3>
+	</li>
+	<li class="slide">
+		<h3>CSS3 - visual goodies, transitions</h3>
+	</li>
+	<li class="slide">
+		<h3>Audio, Video</h3>
+	</li>
+	<li class="slide">
+		<h3>WebSockets</h3>
+	</li>
+	<li class="slide">
+		<h3>Local Storage</h3>
+	</li>
+	<li class="slide">
+		<h3>Offline Storage</h3>
+	</li>
+	<li class="slide">
+		<h3>SVG</h3>
+	</li>
+	<li class="slide">
+		<h3>New Events (touch, orientation, accel)</h3>
+	</li>
+	<li class="slide">
+		<h3>Geolocation (via GPS)</h3>
+	</li>
+</ol>
+</article>
+
+<article class='slide slide-accent'>
+	<h1>HTML 101</h1>
+</article>
+
+<article class='slide slide-list'>
+	<h1>Tags</h1>
+	<div class="slide">HTML tags are element names surrounded by angle brackets like: <br/>
+		<div class="slide example"><em>&lt;</em> html <em>&gt;</em></div>
+	</div>
+</article>	
+
+<article class='slide slide-list'>
+	<h1>Tags</h1>
+	<div class="slide">HTML tags usually come in pairs<br/>
+		<div class="slide example"><em> &lt;head&gt;</em> &nbsp; <em class='slide'> &lt;/head&gt;</em></div>
+		In the industry we refer to these as <em>start tag and end tag</em> or <em>open tag and close tag</em>
+	</div>
+</article>
+
+<article class='slide slide-list'>
+	<h1>Tags</h1>
+	<div> In HTML you can write just the opening tag and it will often work like: <br/>
+			<div class="slide example"><em>&lt;h1&gt;</em> Headline<br/> <em>&lt;p&gt;</em> Body text.</div> 
+	</div>
+	<p class="callout">Don’t do this. Always use open and close or single tags.</p>
+</article>		
+
+<article class='slide slide-list'>
+	<h1>Tags</h1>
+	<p class='slide'>Tell the browser about your content</p>
+	<ul>
+		<li class='slide'>
+			<h3><em>&lt;html&gt;</em> describes the web page</h3>
+		</li>
+		<li class='slide'>	
+			<h3><em>&lt;body&gt;</em>  visible page content</h3>
+		</li>
+		<li class='slide'>	
+			<h3><em>&lt;div&gt;</em>  defines a division or a section</h3>
+		</li>
+		<li class='slide'>	
+			<h3><em>&lt;span&gt;</em>  group inline-elements together</h3>
+		</li>
+		<li class='slide'>
+			<h3><em>&lt;h1&gt;</em> heading</h3>
+		</li>
+		<li class='slide'>
+			<h3><em>&lt;p&gt;</em> paragraph</h3>
+		</li>
+		<li class='slide'>
+			<h3><em>&lt;em&gt;</em> adds emphasis</h3>
+		</li>
+		<li class='slide'>
+			<h3><em>&lt;header&gt;</em> is header content</h3>
+		</li>
+		<li class='slide'>
+			<h3><em>&lt;nav&gt;</em> is navigational content</h3>
+		</li>
+	</ul>		
+	<p class='slide'>Some tags are generic - <em>&lt;div&gt;</em>, <em>&lt;span&gt;</em> Some have “semantic” meaning <em>&lt;h1&gt;</em>, <em>&lt;nav&gt;</em><p>
+</article>		
+	
+<article class='slide slide-accent'>
+	<h1>Attributes</h1>
+</article>
+
+<article class='slide slide-list'>
+	<h1>Attributes</h1>
+	<h3 class='slide'>Tell the browser about your content</h3>
+	<ul>
+		<li class='slide'><h3> HTML tags/elements can have attributes
+			</h3>
+		</li>
+		<li class='slide'><h3> Attributes are always specified in the start tag
+			</h3>
+		</li>
+		<li class='slide'><h3> Attributes come in name/value pairs like: name="value"</h3>
+		</li>
+		<li class='slide'>	
+			<h3>&lt;<em>element </em><span class="callout">name = "</span><span class="light">value</span><span class="callout">"<span>&gt;		
+			</h3>
+		</li>
+	</ul>		
+</article>
+
+<article class='slide slide-list'>
+	<h1>Attributes</h1>
+	<span class="example">&lt;<em>element </em>&nbsp;<em>name</em>&nbsp; = "&nbsp;<em>value</em>&nbsp;"&gt;</span>
+	<p class="slide">Example:</p>
+	<ul>
+		<li class="slide"><h3>links are defined by using an <em>&lt;a&gt;</em> tag</h3>
+		</li>
+		<li class="slide"><h3>you tell the browser what address to link too by adding a <em>href</em> tag</h3>
+		</li>
+		<li class="slide"><h3>&lt;<em>a </em><span class="callout">href = "</span><span class="light">http://www.smfa.edu</span><span class="callout">"<span>&gt;		
+		</h3>	
+		</li>
+	</ul>		
+</article>		
+	
+<article class='slide slide-list'>
+	<h1>Attributes</h1>
+	<p>Available on almost tags</p>
+	<ul>
+		<li class="slide"><h3><span class="callout">CLASS</span> - this defines one or more CSS class names to assign to the tag.</h3>
+		</li>	 
+		<li class="slide"><h3><span class="callout">ID</span> - this defines a unique identifier that uniquely refers to this one tag.</h3> 
+		</li>	
+		<li class="slide"><h3><span class="callout">STYLE</span> - this defines the CSS styles to use for this particular element.<h3>
+		</li>	
+		<li class="slide"><h3>others: href, src, data-*</h3>
+		</li>
+	</ul>
+</article>			
+
+<article class='slide slide-list'>
+	<h1>Attributes</h1>
+	<p>More Examples</p>
+	<ul>
+		<li class="slide"><h3>&lt;<em>nav </em><span class="callout">id = "</span><span class="light">top-nav</span><span class="callout">"<span>&gt;		
+		</h3>	
+		</li>
+		<li class="slide"><h3>&lt;<em>img </em><span class="callout">src = "</span><span class="light">logo.png</span><span class="callout">"<span>&gt;		
+		</h3>	
+		</li>
+		<li class="slide"><h3>&lt;<em>p </em><span class="callout">class = "</span><span class="light">highlight</span><span class="callout">"<span>&gt;		
+		</h3>	
+		</li>
+		<li class="slide"><h3>&lt;<em>a </em><span class="callout">href = "</span><span class="light">http://www.massart.edu</span><span class="callout">"<span>&gt;		
+		</h3>	
+		</li>
+	</ul>
+</article>		
+
+
+<article class='slide slide-accent'>
+<h1>HTML5 Semantic Structure</h1>
+</article>
+
+<article class='slide slide-list'>
+	<h1>HTML5 Semantic Tags</h1>
+	<h3>Most Common Tags</h3>
+	<ul> 
+		<li class='slide'>
+			<h3 >&lt;head&gt; = Meta Info</h3>
+		</li>
+		<li class='slide'>
+			<h3 >&lt;body&gt; = Site Content</h3>
+		</li>
+		<li class='slide'>
+			<h3 >&lt;header&gt; = Header (Head area of the site)</h3>
+		</li>
+		<li class='slide'><h3>&lt;nav&gt; = Navigation (Menu/Navigation Area)
+	 
+			</h3>
+		</li>
+		<li class='slide'><h3>&lt;section&gt;  = Section
+			</h3>
+		</li>
+		<li class='slide'><h3>&lt;article&gt; = Article
+			</h3>
+		<li class='slide'><h3>&lt;footer&gt;  = Footer Area
+			</h3>
+		</li>
+		<li class='slide'><h3>&lt;aside&gt; = An area on a side (side bar)
+			</h3>
+		</li>
+	
+	</ul>		
+</article>
+
+<article class='slide slide-list'>
+	<h2>&lt;head&gt; = Meta Info</h2>
+	<pre>
+&lt;head&gt;
+	&lt;meta name='description' content='Page description -
+	only important for search results page'/&gt;<br/>
+	&lt;meta name='keywords' content='Keywords,
+	not that important'/&gt;<br/>
+	&lt;link href="stylesheet.css" rel="Stylesheet" type="text/css" /&gt;
+	...more stylesheets...<br/>
+	&lt;script src="somejavascriptfile.js"&gt;&lt;/script&gt;
+	...more scripts...<br/>
+&lt;/head&gt;		
+	</pre>		
+</article>
+
+<article class='slide slide-list'>
+	<h2>&lt;header&gt;</h2>
+	<ul>
+		<li><h3>a group of introductory or navigational aids</h3>
+		</li>
+		<li><h3>logos, table of contents, search form</h3>
+		</li>
+	</ul>			
+</article>	
+
+<article class='slide slide-list'>
+	<h2>&lt;nav&gt;</h2>
+	<ul>
+		<li><h3>a section of a page that links to other pages or to parts within the page 
+		</h3>
+		</li>
+		<li><h3>main navigation: home, about, contact, user navigation: login, register, account sidebar navigation: products, blogs, etc.</h3>
+		</li>
+	</ul>			
+</article>
+
+<article class='slide slide-list'>
+	<h2>&lt;section&gt;</h2>
+	<ul>
+		<li><h3>a group of content, typically with a heading</h3>
+		</li>
+		<li><h3>introduction,  <br/>news items,  <br/>contact information, <br/>chapters, <br/>tabbed pages in a tabbed dialog box,  <br/>numbered sections of a thesis.</h3>
+		</li>
+	</ul>			
+</article>
+
+<article class='slide slide-list'>
+	<h2>&lt;article&gt;</h2>
+	<ul>
+		<li><h3>Self-contained piece of content</h3>
+		</li>
+		<li><h3>forum post,<br/>magazine article,<br/>newspaper article,<br/>blog entry, <br/>user-submitted comment, <br/>interactive widget, <br/>independent item of content.</h3>
+		</li>
+	</ul>			
+</article>
+
+
+<article class='slide slide-list'>
+	<h2>&lt;footer&gt;</h2>
+	<ul>
+		<li><h3>represents the footer for the section it applies to. (does not have to mean the bottom of the page)</h3>
+		</li>
+		<li><h3>information about its section, <br/>who wrote it,  <br/>links to related documents,  <br/>copyright data, <br/>appendices,  <br/>indexes,  <br/>colophons,  <br/>license agreements.</h3>
+		</li>
+	</ul>			
+</article>
+
+<article class='slide slide-accent'>
+<h1>how you might use these tags</h1>
+</article>
+
+<article style='background-image:url(images/slashdot.jpg);' class='slide slide-background'>
+</article>
+
+<article style='background-image:url(images/slashdot2.jpg);' class='slide slide-background'>
+</article>
+
+<article style='background-image:url(images/bostinno.jpg);' class='slide slide-background'>
+</article>
+
+<article style='background-image:url(images/bostinno2.jpg);' class='slide slide-background'>
+</article>
+
+<article style='background-image:url(images/listapart.jpg);' class='slide slide-background'>
+</article>
+
+<article style='background-image:url(images/listapart2.jpg);' class='slide slide-background'>
+</article>
+
+<article class='slide slide-subhead'>
+<h1>Writing Good HTML</h1>
+<h2>"A Semantic Chop"</h2>
+</article>
+
+<article class='slide slide-list'>
+	<h1>The Goals</h1>
+	<ul>
+		<li class='slide'>
+			<h3>HTML tags used in Meaningful ways
+			</h3>
+		</li>
+		<li  class='slide'>
+			<h3>Validating markup</h3>
+		</li>
+		<li class='slide'><h3>All dynamic interactions added “unobtrusively” (usually via jQuery)</h3>
+		</li>
+	</ul>		
+</article>
+
+<article class='slide slide-accent'>
+<h1>Reminder! your HTML is not your design</h1>
+</article>
+
+<article class='slide slide-image'>
+	<h3><img src="images/layout.jpg" width='600' class='top-image'/></h3>
+	<h1>Layout with Absolute Positioning, 
+    Floats &amp; the box model (Except: <a href='http://paulirish.com/2012/box-sizing-border-box-ftw/'>Box Sizing</a>)</h1>
+</article>
+
+<article class='slide slide-list'>
+	<h1>Tags We’ll be using</h1>
+	<p>The new (HTML5) semantic tags:<br/> <em>&lt;head&gt;, &lt;nav&gt;, &lt;section&gt;,&lt;article&gt;, &lt;footer&gt;, &lt;aside&gt;</em>
+	</p>
+	<p>The generic containers:  <em>&lt;div&gt;</em> and  <em>&lt;span&gt;</em>
+	</p>
+	<p>Images (<em>&lt;img&gt;</em>) and hyperlinks (<em>&lt;a&gt;</em>)
+	</p>
+	<p>The old semantic tags, including paragraph (<em>&lt;p&gt;</em>), headers (<em>&lt;h1&gt;</em>,<em>&lt;h2&gt;</em>,<em>&lt;h3&gt;</em>,<em>&lt;h4&gt;</em>)
+	</p>
+	<p>Lists, primarily unordered (<em>&lt;ul&gt;</em>). Unordered lists are often used for lists of menu items, form items, bulleted items, pretty much anything where there's a list of items that need to be styled consistently.
+	</p>		
+</article>
+
+
+
+<article class='slide slide-subhead'>
+<h1>You Must<br/>Validate &amp; Lint!</h1>
+<h2><a href='http://validator.w3.org/'>Validator</a> / <a href='http://lint.brihten.com/html/'>Linter</a> </h2>
+</article>
+
+<article class='slide slide-list'>
+<h2>Chop a Blog Post</h2>
+<a href='http://www.html5gamedevelopment.org/html5-game-tutorials/2012-02-javascript-garden'><img src='images/blog.png' width='900'/></a>
+</article>
+
+<article class='slide slide-list'>
+<h2>Blog Post Chop - No CSS!</h2>
+<textarea class='coder-editor coder-editor-full' data-language='html' data-save='CDGD339-03-blog-post-chop'>
+</textarea>
+</article>
+
+
+<article class='slide slide-list'>
+<h2>Basic Site Template</h2>
+<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='html'>
+<!DOCTYPE html>
+<html charset="utf-8">
+  <head>
+    <title>My Title</title>
+    <link rel="stylesheet" type='text/css' href="sample.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Awesome Website</h1>
+      <nav id='top-menu'>
+      <ul class='menu'>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      </nav>
+    </header>
+    <section id='content'>
+      <article class='blog-post'>
+        <hgroup>
+          <h1>Lorem Ipsum Blog Post</h1>
+          <h2>By writer person</h2>
+        </hgroup>
+        <p>
+          Duis pellentesque velit sed est tincidunt nec lacinia nisi suscipit. Vivamus ut dolor vitae nisi gravida molestie. Morbi lorem augue, blandit id fringilla eget, vestibulum id nisl. Sed viverra eros ut sem rhoncus quis laoreet nisl condimentum. Duis aliquam viverra porttitor. Duis ligula ligula, venenatis sed sagittis in, mollis nec nulla. Curabitur imperdiet libero vitae sem sagittis sit amet posuere neque ultricies. Aenean lobortis, nunc sit amet tincidunt egestas, ipsum nulla dapibus nisl, at dapibus nisi sem non augue. Pellentesque convallis risus sit amet arcu porta et blandit mauris ultrices. Donec facilisis mollis elementum. Nam eget faucibus d</p>
+        <h2>Lorem McIpsum</h2>
+          <p>Nulla in ullamcorper erat. Curabitur auctor sagittis sollicitudin. Phasellus urna erat, vestibulum congue rutrum non, bibendum eu mauris. Aenean varius vulputate ante, quis lacinia felis sollicitudin quis. Nulla vitae dui sem. Ut rhoncus euismod dignissim. Pellentesque metus nisl, convallis id condimentum sed, ullamcorper sit amet odio. Suspendisse ut augue massa, nec mattis risus. Vestibulum mattis, leo et posuere porttitor, mi tortor porta quam, imperdiet fermentum mi turpis ac erat. Aliquam ut nisl et velit aliquam imperdiet at sit amet velit. Sed non hendrerit quam. Fusce dignissim, tellus sed blandit auctor, mi sem ultricies leo, eget iaculis sem ligula vitae mauris.</p>
+        <footer class='post-footer'>
+        Posted On 1/1/2011
+        </footer>
+      </article>
+      <aside id='sidebar'>
+        <h1>Older Posts</h1>
+        <ul>
+        	<li><a href="#">Link1</a></li>
+        	<li><a href="#">Link2</a></li>
+        </ul>
+      </aside>
+    </section>
+    <footer id='site-footer'>
+      <nav id='footer-nav'>
+        <ul>
+        	<li><a href="#">Contact Us</a></li>
+        	<li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </nav>
+
+    </footer>
+  </body>
+</html>
+</textarea>
+</article> 
+
+
+<article class='slide slide-subhead'>
+<h1>Let your HTML be your outline</h1>
+<h2><a href='http://gsnedders.html5.org/outliner/'>http://gsnedders.html5.org/outliner/</a></h2>
+</article>
+	
+<article class='slide slide-accent'>
+	<h1>Let's Talk CSS</h1>
+</article>
+
+<article class="slide slide-list">
+<h1>Cascading Style Sheets</h1>
+<ul>
+<li class="slide">
+	<h3>Used for “presentation” of your HTML</h3>
+</li>
+<li class="slide">
+	<h3>Controls the styles of your page</h3>
+</li>
+<li class="slide">
+	<h3>Also Controls the layout of your page (where stuff is positioned)</h3>
+</li>
+<li class="slide">
+	<h3>Can have different styles different media formats (eg. print and screen) stylesheets for</h3>
+</li>
+</ul>
+</article>
+
+<article class="slide slide-subhead">
+<h1>What is a style?</h1>
+<img src='images/css.png'/>
+</article>
+
+
+<article class='slide slide-list'>
+<h2>Pay attention to your class and id names!</h2>
+<li class="slide">
+	<h3>You can't use spaces.</h3>
+</li>
+<li class="slide">
+	<h3>You shouldn't use underscores (_) - altough technically now permitted</h3>
+</li>
+<li class="slide">
+	<h3>Use camelCase or dashes-to-separate-names</h3>
+</li>
+<li class="slide">
+	<h3>I'd recommend dashes - css uses Dashses (<em>background-color, font-family</em>), <br/>
+		Javascript uses camelCase</h3>
+</li>
+<li class="slide">
+	<h3>Be consistent! - easier to read and remember what you wrote.</h3>
+</li>
+</article>
+
+
+
+
+<article class="slide slide-list">
+<h2>Available selectors</h2>
+<ul>
+	 <li class='slide'>
+		 <h3> name of element (e.g. <em>p, div, h1</em>)</h3>
+	</li>
+	<li class='slide'>
+		<h3>
+		class name preﬁxed with a period (.)<br/>
+		&lt;div class=‘<em>my-class-name</em>’&gt;..&lt;/div&gt;<br/>
+		= <em>.my-class-name</em> { ... }
+	</h3>
+	</li>
+	<li class='slide'>
+		<h3>element id preﬁxed with a pound sign (#)<br/>
+			&lt;div id=‘<em>my-id</em>’&gt;..&lt;/div&gt;<br/>
+			= <em>#my-id</em>{ ... }
+	</h3>
+</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Selectors </h2>
+<textarea class='coder-editor coder-editor-split coder-editor-instant' data-coder-template="coderdeck-css-playground" data-language='html'>
+<style>
+
+</style>
+</textarea>
+</article>
+
+
+<article class="slide slide-list">
+<h1>Selector combinations </h1>
+<ul>
+	 <li class='slide'>
+		 <h3> Can have a declaration apply to multiple 
+			 styles with a comma (,)</h3>
+			<ul>
+				<li><em>.my-class-one, .my-class-two</em> { color:red; }</li>
+		 	</ul>
+	</li>
+	<li class='slide'>
+		<h3> Can “Cascade” styles with spaces</h3>
+			<ul>
+				<li><pre>&lt;div id='outer'&gt;&lt;p&gt; ... &lt;/p&gt;&lt;/div&gt;</pre>
+			 		<em>#outer p </em> { color:red; } /* only p's inside of outer */
+				</li>
+		 	</ul>
+	</li>
+	<li class='slide'>
+		<h3> Can select only "child" styles with spaces</h3>
+			<ul>
+				<li><pre>&lt;div id='outer'&gt;&lt;div&gt;&lt;div&gt; ... &lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</pre>
+					<em>#outer > div </em> { background-color:red; } /* only div's that are direct children of outer */</li>
+		 	</ul>
+	</li>
+	<li class='slide'>
+		<h3>Psudeo-classes that apply to elements in certain conditions</h3>
+			<ul>
+				<li><em>a:hover</em>{ color:blue; } /* only links we are hovering over */<br/>
+					<em>a:visited></em> { color:red; } /* links we've visited already */<br/>
+					<em>p:first-child ></em> { color:red; } /* the first paragraph in a container */<br/>
+				</li>
+			</ul>		
+	</li>
+	<li class='slide'>
+		<h3>Also can select by arbitrary attributes</h3>
+			<ul>
+				<li><em>input[type=radio]</em>{ color:blue; } /* only radio buttons */<br/></li>
+			</ul>	
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Selector Combination Exercise</h2>
+<textarea class='coder-editor coder-editor-split coder-editor-instant' data-coder-template="coderdeck-plain" id='coderdeck-default'>
+<style>
+
+</style>
+<header>
+  <h1>My Site!</h1>
+  <nav><ul>
+    <li><a href='#'>Link 1</a></li>
+    <li><a href='#'>Link 2</a></li>
+  </ul></nav>
+</header>
+
+<section id='content'>
+  <article class='blog-post'>
+    <h1>Blog Post 1</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac elit at nisl sagittis consequat sed eget tellus. Aliquam gravida, nunc sit amet viverra dictum, nibh justo semper massa</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac elit at nisl sagittis consequat sed eget tellus. Aliquam gravida, nunc sit amet viverra dictum, nibh justo semper massa</p>
+  </article>
+  <article class='blog-post'>
+    <h1>Blog Post 1</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac elit at nisl sagittis consequat sed eget tellus. Aliquam gravida, nunc sit amet viverra dictum, nibh justo semper massa</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac elit at nisl sagittis consequat sed eget tellus. Aliquam gravida, nunc sit amet viverra dictum, nibh justo semper massa</p>
+  </article>
+
+</section>
+<footer>
+  <a href='#'>Link 1</a> | <a href='#'>Link 2</a>
+</footer>
+
+</textarea>
+</article> 
+
+<article class="slide slide-list">
+<h1>Properties</h1>
+<ul>
+<li class="slide">
+	<h3>There are lots of them</h3>
+</li>
+<li class="slide">
+	<h3>Two Primary types: Layout, Style<br/>
+	(Padding is layout, color is style)</h3>
+</li>
+<li class="slide">
+	<h3>Style generally inherit, Layout don’t</h3>
+</li>
+<li class="slide">
+	<h3>Sometimes can be combined into one: e.g.<br/>
+	<em>font = font-family, font-style, font-variant, ...</em></h3>
+</li>
+<li class="slide">
+	<h3>Layout box properties go clockwise from  midnight: top, right, bottom, left</h3>
+</li>
+</ul>
+</article>
+
+
+<article class="slide slide-list">
+<h1>Values</h1>
+<ul>
+<li class="slide">
+	<h3>colors: #FFF, #FFFFFF, rgb(255,255,255), gray, black, red</h3>
+</li>
+<li class="slide">
+	<h3>numbers: 0, 25px, 1.1em, 100%<br/>
+		<em>em's are 'M' height - and these inherit (multiply)</em>
+	</h3>
+</li>
+<li class="slide">
+	<h3>“inherit” is a special property to force inheritence</h3>
+</li>
+</ul>
+</article>
+
+
+
+
+<article class="slide slide-list">
+<h1>Style Properties</h1>
+<ul>
+<li class="slide">
+	<h3>color</h3>
+</li>
+<li class="slide">
+	<h3>font (style, variant, weight, size, family)</h3>
+</li>
+<li class="slide">
+	<h3>text-align</h3>
+</li>
+<li class="slide">
+	<h3>text-indent</h3>
+</li>
+<li class="slide">
+	<h3>text-decoration</h3>
+</li>
+<li class="slide">
+	<h3>line-height</h3>
+</li>
+<li class="slide">
+	<h3>letter-spacing, word-spacing	</h3>
+</li>
+</ul>
+</article>
+
+
+
+<article class='slide slide-list'>
+<h2>Style Properties</h2>
+<textarea class='coder-editor coder-editor-split coder-editor-instant' data-coder-template="coderdeck-plain" id='coderdeck-default'>
+<style>
+p {
+
+
+}	
+</style>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac elit at nisl sagittis consequat sed eget tellus. Aliquam gravida, nunc sit amet viverra dictum, nibh justo semper massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac elit at nisl sagittis consequat sed eget tellus. Aliquam gravida, nunc sit amet viverra dictum, nibh justo semper massa</p>
+</textarea>
+</article> 
+
+<article class="slide slide-list">
+<h1>Layout Properties</h1>
+<ul>
+<li class="slide">
+	<h3>Box model: margin, padding, width, height</h3>
+</li>
+<li class="slide">
+	<h3>top, bottom, left, right</h3>
+</li>
+<li class="slide">
+	<h3>border</h3>
+</li>
+<li class="slide">
+	<h3>position [ static, relative, absolute ]</h3>
+</li>
+<li class="slide">
+	<h3>ﬂoat [ left, right, none ], clear [ left, right, both]</h3>
+</li>
+<li class="slide">
+	<h3>display [none, block, inline inline-block]</h3>
+</li>
+<li class="slide">
+	<h3>visibility [visible, hidden]</h3>
+</li>
+<li class="slide">
+	<h3>background (color, image, repeat, position)</h3>
+</li>
+<li class="slide">
+	<h3>CSS3 (border-radius, box-shadow)</h3>
+</li>
+</ul>
+</article>
+
+<article class='slide slide-image'>
+<h1>Layout = Box Model</h2>
+<img src='images/layout.jpg'/>
+</article>
+
+<article class="slide slide-subhead">
+<h2><br/><br/>Understanding floats + Positioning</h2>
+	<p><a href='http://www.barelyfitz.com/screencast/html-training/css/positioning/'>http://www.barelyfitz.com/screencast/html-training/css/positioning/</a></p>
+</article>
+
+<article class="slide slide-list">
+<h1>Positioning 101</h1>
+	<ul>
+		<li class="slide">
+			<h3>Use “position:relative” to create an zone for absolutely positioning content</h3>
+		</li>
+		<li class="slide">
+			<h3>Use “position:absolute; top:...; left:....” to place something inside that zone.</h3>
+		</li>
+	</ul>
+</article>
+
+
+
+
+<article class='slide slide-image'>
+<h1>Exercise: we want this</h1>
+<img src='images/position-exercise.png'/>
+</article>
+
+
+<article class='slide slide-list'>
+<h2>Positioning Exercise</h2>
+<textarea class='coder-editor coder-editor-full' data-coder-template="coderdeck-plain" id='coderdeck-default'>
+<style>
+  #container { background-color:lightgray; margin:20px; height:300px; }
+
+
+</style>
+<div id='site'>
+Above Container
+<div id='container'>
+  <div id='top-left'>I'm in the top left!</div>
+  <div id='bottom-right'>I'm in the bottom right!</div>
+  <div class='blocks'>
+	  <div class='block'></div>
+	  <div class='block'></div>
+	  <div class='block'></div>
+	  <div class='block'></div>
+  </div>
+</div>
+Below Container
+</div>
+</textarea>
+</article> 
+
+
+<article class='slide slide-list'>
+<h2>Cascading - What Color?</h2>
+<textarea class='coder-editor coder-editor-full' data-coder-template="coderdeck-plain" id='coderdeck-default'>
+<style>
+  p { color:red;}
+  .blue { color:blue; }
+  #menu p { color:black; }
+</style>
+
+<div id="menu"><p class='blue'>This is the paragraph</p></div>
+</textarea>
+</article>
+
+<article class="slide slide-list">
+<h1>Cascading Hierarchy</h1>
+<ul>
+<li class="slide">
+	<h3>Inline style (those defined directly with a style='....' attribute in the tag)</h3>
+</li>
+<li class="slide">
+	<h3>Number of ID selectors</h3>
+</li>
+<li class="slide">
+	<h3>Number of Class selectors</h3>
+</li>
+<li class="slide">
+	<h3>Number of tag selectors</h3>
+</li>
+<li class="slide">
+	<h3>Order of appearance last to first</h3>
+</li>
+<li class="slide">
+	<h3>Style inheritance</h3>
+</li>
+</ul>
+</article>
+
+
+<article class='slide slide-accent'>
+	<h1>Techniques</h1>
+</article>	
+
+<article class="slide slide-subhead">
+	<h1>Start with<br/> your reset</h1>
+	<p>Eric Meyer Reset<br/>
+		<a href="http://meyerweb.com/eric/tools/css/reset/">http://meyerweb.com/eric/tools/css/reset/</a>
+	</p>
+	<h2><a href="http://bit.ly/meyerreset">http://bit.ly/meyerreset</a>
+	</h2>	
+</article>
+
+<article class='slide slide-list'>
+	<h1>Centering Content</h1>
+	<h2>Give it a width and set margin: 0 auto;</h2>
+<pre>
+section#content {
+  margin:0 auto;
+  width:960px;
+}
+	</pre>
+</article>	
+
+<article class="slide slide-list">
+<h1>Nitty Gritty</h1>
+	<ul>
+		<li class="slide">
+			<h3>Using HTML5 tags - use a shiv<br/> <a href="http://code.google.com/p/html5shiv/">http://code.google.com/p/html5shiv/</a><br/>
+				(Or Modernizr, which we’ll discuss later)</h3>
+		</li>
+		<li class="slide">
+			<h3>Link to your stylesheet with a link tag in your &lt;head&gt;:<br/> 
+				<pre>&lt;link type=‘text/css’ rel=‘stylesheet’ href=‘style.css’ /&gt;</pre>
+			</h3>
+		</li>
+	</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Logo Replacement</h2>
+<textarea class='coder-editor coder-editor-split' data-coder-template="coderdeck-plain" id='coderdeck-default'>
+&lt;style&gt;
+#site-header h1 a {
+ display:block;  
+ width:300px; 
+ height:80px;  
+ background:url(images/logo.png) no-repeat top left; 
+ text-indent:-9999px;
+ }
+</style>
+<header id='site-header'>
+ <h1><a href='#'>My Awesome Website</a></h1>
+</header>
+</textarea>
+</article>
+
+<article class="slide slide-list">
+<h1>Basic Chop 101</h1>
+	<ul>
+		<li class="slide">
+			<h3>Relatively positioned header</h3>
+		</li>
+		<li class="slide">
+			<h3>Absolutely positioned top nav</h3>
+		</li>
+		<li class="slide">
+			<h3>Image replacement logo</h3>
+		</li>
+		<li class="slide">
+			<h3>Floated menu items</h3>
+		</li>
+		<li class="slide">
+			<h3>Floated body</h3>
+		</li>
+		<li class="slide">
+			<h3>Relatively positioned footer</h3>
+		</li>	
+	</ul>
+</article>
+
+<article class="slide slide-list">
+<h2>CSS Code</h2>
+	<pre>body { width:960px; margin:0 auto; }
+		
+header#site-header {
+  position:relative; height:80px;
+}
+
+#site-header h1 a { 
+  display:block;	
+  text-indent:-9999px;    
+  position:absolute;
+  width:300px; height:80px;
+  background:url(logo.png) no-repeat left top;
+}
+nav#top-nav { position:absolute; right:0px; top:0px; }
+
+nav#main-menu { height:30px; background-color:black; }
+nav#main-menu ul li { display:block; float:left; padding:0 5px; }
+nav#main-menu ul li a { display:block; color:white; padding:5px 5px; background-color:blue; }
+
+section#page-content { float:left; width:550px; padding:50px 20px; }
+aside#sidebar { float:right; width:220px; padding:50px 10px;; }
+
+footer#site-footer {     clear:both; background-color:black;     color:white; padding:10px 0px;  }</pre>
+</article>
+
+<article class="slide slide-list">
+<h2>Clearfix</h2>
+	<pre>.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+	}
+
+.clearfix { display: inline-block; }
+  html[xmlns] .clearfix { display: block; }
+  * html .clearfix { height: 1%; }</pre>
+</article>
+
+
+<article class='slide slide-list'>
+<h2>Navbar: Make this</h2>
+<img src='images/menubar.png'/>
+<textarea class='coder-editor coder-editor-split' data-coder-template="coderdeck-plain" id='coderdeck-plain'>
+<style>
+	/* Style it here */
+
+</style>
+<nav id='main-menu'>
+<ul>
+	<li>
+		<a href="#">Home</a></li>
+	<li>
+		<a href="#">About</a></li>
+	<li>
+		<a href="#">Blog</a></li>
+	<li class='last'>
+		<a href="#">Contact</a></li>
+</ul>
+</nav>
+</textarea>
+<script type='coder-solution'>
+<style>
+/* Style it here */
+#main-menu  {
+    position:absolute;
+    top:20px;
+    right:20px;
+    background-color:gray;
+    float:right;
+    border-radius:10px;
+    box-shadow:4px 4px 4px #666;
+    padding:0 10px;
+    margin:0 20px;
+ }
+  #main-menu li { 
+    float:left; 
+    border-right:1px solid #CCC;
+  }
+  #main-menu li.last { border:0px; }
+  #main-menu li a { display:block; 
+    padding:15px 20px;
+    font-size:18px;
+    color:white;
+    text-decoration:none;
+  }
+  #main-menu li a:hover { background-color:#DDD; }
+</style>
+<nav id='main-menu'>
+<ul>
+	<li>
+		<a href="#">Home</a></li>
+	<li>
+		<a href="#">About</a></li>
+	<li>
+		<a href="#">Blog</a></li>
+	<li class='last'>
+		<a href="#">Contact</a></li>
+</ul>
+</nav>
+</script>
+</article>
+
+
+<article class="slide slide-list">
+	<h1>Organizing Your CSS</h1>
+	<ol>
+		<li class='slide'>
+			<h3>Start with your reset (see next slide)</h3>
+		</li>	
+		<li class="slide">
+			<h3>Set your body</h3>
+		</li>
+		<li class="slide">
+			<h3>Set your base element styles (p, h1, h2, blockqoute)</h3>
+		</li>
+		<li class="slide">
+			<h3>Set your reusable class styles</h3>
+		</li>
+		<li class="slide">
+			<h3>Set your layout styles</h3>
+		</li>
+		<li class="slide">
+			<h3>Set your module styles (additional sub-themes like blogs,custom pages, etc )</h3>
+		</li>
+	</ol>	
+</article>	
+
+<article class='slide slide-homework'>
+<h2>Homework</h2>
+	
+	<h3 class='slide'>Coding</h3>
+       <ul class='slide'>
+			<li>
+        <h3>3 *Quick* Site Designs</h3>
+			</li>
+			<li>
+        <h3>Start thinking about the first chop</h3>
+			</li>
+		</ul>
+</ul>	
+	
+	
+</article>
+
+
+
+<script src='dist/coderdeck.js'></script>
+
+<script>
+	$(function() {
+		$.deck('.slide');
+	});
+</script>
+</body>
+</html>
