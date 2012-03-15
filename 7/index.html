@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Ajax / Server Side - Web 2 CDGD339</title>
+	<meta name="viewport" content="width=1024">
+
+        <link rel="stylesheet" href="dist/coderdeck-core.min.css" type="text/css">
+  <link rel="stylesheet" id='style-theme-link' href="css/coderdeck.css" type="text/css" >
+
+  <script type="text/javascript" src="http://use.typekit.com/idq2tqo.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+	<script src='dist/jquery.min.js'></script>
+	<script src="dist/modernizr.js"></script>
+</head>
+<body class="deck-container">
+
+<script type='text/coderdeck' id='coderdeck-default'>
+  <html>
+    <head>
+      <script src='dist/jquery.min.js'>SCRIPTEND
+<link rel='stylesheet' href='reset.css' type='text/css'/>
+    </head>
+    <body>
+	    CODE
+    </body>
+</html>
+</script>
+
+
+<script type='text/coderdeck' id='coderdeck-style-nothing'>
+CODE
+</script> 	
+
+
+
+<article class='slide slide-subhead'>
+<h1>MassArt Web 2 </h1>
+
+<h2>
+  Javascript, jQuery<br/>
+  <a href='http://bit.ly/massart-web2-7'>http://bit.ly/massart-web2-7</a>
+</h2>
+</article>
+
+
+<!-- Apply a class of "coder-editor" to a textarea to make it show up as runnable code -->
+<article class='slide slide-list'>
+<h2>Today</h2>
+<ul>
+  <ul>
+  	<li class="slide">
+  		<h3>Review Homework</h3>
+  	</li>
+    <li class='slide'>
+      <h3>Discuss Final Projects</h3>
+    </li>
+		<li class="slide">
+			<h3>jQuery</h3>
+		</li>
+    <li class='slide'>
+      <h3>PHP</h3>
+    </li>
+    <li class='slide'>
+      <h3>MySQL</h3>
+    </li>
+  </ul>
+</ul>
+</article>
+
+
+<script>
+(function($){
+ 
+    $.fn.shuffle = function() {
+ 
+        var allElems = this.get(),
+            getRandom = function(max) {
+                return Math.floor(Math.random() * max);
+            },
+            shuffled = $.map(allElems, function(){
+                var random = getRandom(allElems.length),
+                    randEl = $(allElems[random]).clone(true)[0];
+                allElems.splice(random, 1);
+                return randEl;
+           });
+ 
+        this.each(function(i){
+            $(this).replaceWith($(shuffled[i]));
+        });
+ 
+        return $(shuffled);
+ 
+    };
+ 
+})(jQuery);
+
+function shuffleHomework(amt) {
+	if(amt <= 0) return;
+	$("#homework li").shuffle();
+	setTimeout(function() { shuffleHomework(amt - 1); },200);
+}
+
+	</script>
+
+<article class='slide slide-list'>
+<h2>Homework Review</h2>
+	<a href='javascript:shuffleHomework(10);'>Shuffle</a>
+<ul>
+  <ul id='homework'>
+  	<li >
+    <h3>Aimee <a href='http://aimeeb.github.com/'>http://aimeeb.github.com/</a></h3>
+  	</li>
+  	<li >
+    <h3>Christina <a href='http://cmyung.github.com'>http://cmyung.github.com</a></h3>
+  	</li>
+  	<li >
+    <h3>Leah <a href='http://leahbrunetto.github.com'>http://leahbrunetto.github.com</a></h3>
+  	</li>
+  	<li >
+    <h3>Meggles <a href='http://Meggles.github.com/Web-339/'>http://Meggles.github.com/Web-339/</a></h3>
+  	</li>
+  	<li >
+    <h3>Cheryl <a href='http://cmccaffrey.github.com/'>http://cmccaffrey.github.com/</a></h3>
+  	</li>
+  	<li >
+    <h3>Lauren <a href='http://laz231.github.com/'>http://laz231.github.com/</a></h3>
+  	</li>
+  	<li >
+    <h3>Rebecca <a href='http://salonstress.github.com'>http://salonstress.github.com</a></h3>
+  	</li>
+  	<li >
+    <h3>Amanda <a href='http://acacheung.github.com'>http://acacheung.github.com</a></h3>
+  	</li>
+    <li>
+    <h3>Kristina <a href='http://kristinasym.github.com'>http://kristinasym.github.com</a></h3>
+  </ul>
+</article>
+
+<article class='slide slide-list'>
+ <h2>Ajax</h2>
+ <p><a href='http://api.jquery.com/jQuery.ajax/'>$.ajax</a>, $.get, $.post, $.getJSON </p>
+<textarea class='coder-editor'>
+<script>
+$(document).ready(function() {
+
+var ajax = $.get("names.json",function(data) {
+  alert(data);
+});
+
+});
+
+</script>
+
+</textarea>
+
+
+ </article>
+
+ <article class='slide'>
+ <h2>JSONp</h2>
+ <p>Ajax is same-domain only. So there's a hack to pull data across domains called $.getScript </p>
+ <textarea class='coder-editor'>
+<script>
+$(document).ready(function() {
+ var username = 'aplusk';
+ var count = 10;
+ $.getJSON('http://twitter.com/statuses/user_timeline/' + username + '.json?callback=?',
+	  function(data) {
+		alert(data);
+		console.log(data);
+	  });
+});
+</script>
+
+</textarea>
+</article>
+
+<article class='slide slide-subhead'>
+<h1>Style Bootstrap..</h2>
+<h2><a href='http://twitter.github.com/bootstrap/'>http://twitter.github.com/bootstrap/</a></h2>
+
+</article>
+
+
+ <article class='slide'>
+ <h2>Exercise 1:</h2>
+ <p>Display a Twitter Feed </p>
+ <textarea class='coder-editor coder-editor-full' data-save='twitter-exercise' >
+<link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap-1.1.1.min.css">
+<script>
+
+$(document).ready(function() {
+ var username = 'aplusk';
+ var count = 10;
+ // aplusk.json
+ $.getJSON('http://twitter.com/statuses/user_timeline/' + username + '.json?callback=?',
+	  function(data) {
+		console.log(data);
+	  });
+});
+</script>
+
+<h1 id='feed-name'></h1>
+<div id='feed'>
+
+</div>
+
+</textarea>
+</article>
+
+
+
+<article class='slide slide-list'>
+<h2>What is the server?</h2>
+<ul>
+	<li>
+		<h3>The machine that your browser talks to</h3>
+	</li>
+	<li>
+		<h3>Generally "speaks" http</h3>
+	</li>
+	<li>
+		<h3>Serves you static html + files</h3>
+	</li>
+	<li>
+		<h3>Also can generate "dynamic content"</h3>
+	</li>
+	<li>
+		<h3>But, by the time it gets to your browser, it looks like static content.</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>PHP</h2>
+<ul>
+	<li>
+		<h3>The best first language to learn</h3>
+	</li>
+	<li>
+		<h3>Available on almost all hosting accounts</h3>
+	</li>
+	<li>
+		<h3>Script and HTML mixed together in one file</h3>
+	</li>
+	<li>
+		<h3>Not the only language (not my favorite language)</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>PHP 101</h2>
+<ul>
+	<li><h3>Sort of object-oriented</li>
+	<li><h3>Variables prefixed with “$”</li>
+	<li><h3>Lots of superficial similarities to javascript</li>
+	<li><h3>Embed into HTML</li>
+	<li><h3><a href='http://www.learnphp-tutorial.com/' target='_blank'>http://www.learnphp-tutorial.com/</a></li>
+</ul>
+</article>
+
+
+<article class='slide slide-list'>
+<h2>If you continue with development...</h2>
+<ul>
+	<li><h3>You’ll want to set up your computer as a development machine</h3></li>
+	<li><h3><a href='http://foundationphp.com/tutorials/php_leopard.php' target='_blank'>http://foundationphp.com/tutorials/php_leopard.php</a></h3></li>
+	<li><h3><a href='http://php.iis.net/' target='_blank'>http://php.iis.net/</a></h3></li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Exercise 1: Hello World</h2>
+<ul>
+	<li>
+		<h3>Log into your ftp (or my) account. massartuser / martacct </h3>
+	</li>
+	<li>
+  <h3>Create an exercise 1 directory</h3>
+	</li>
+	<li>
+		<h3>Create a new file (locally) called index.php</h3>
+	</li>
+	<li>
+		<h3>Type “Hello World” into the file</h3>
+	</li>
+	<li>
+		<h3>Create a directory called sandbox</h3>
+	</li>
+	<li>
+		<h3>Upload your file into sandbox</h3>
+	</li>
+	<li>
+		<h3>Go to the web page.</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Exercise 2: Hello PHP</h2>
+<ul>
+	<li>
+		<h3>Change your file from “Hello World” to</h3>
+	</li>
+	<li>
+		<h3>< ?php echo “Hello World” ?></h3>
+	</li>
+	<li>
+		<h3>then try:</h3>
+	</li>
+	<li>
+		<h3>< ?php echo “Hello World at “ . time(); ?></h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Forms</h2>
+<ul>
+	<li>
+		<h3>Data submitted to the server</h3>
+	</li>
+	<li>
+		<h3>Accessible in php via $_REQUEST, $_POST, and $_GET</h3>
+	</li>
+	<li>
+		<h3>e.g.<br/>
+			< form action=’?’ method=‘post’><br/>
+		< input type=‘text’ name=‘field’/><br/>
+		< input type=‘submit’ value=’Go!’/> </form></h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Exercise 2: Create a form</h2>
+<ul>
+	<li>
+		<h3>Accept and input first and last name</h3>
+	</li>
+	<li>
+		<h3>Output them to the page</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>But...</h2>
+<ul>
+	<li>
+		<h3>Injection</h3>
+	</li>
+	<li>
+		<h3><a href='http://www.cornify.com/extras' target='_blank'>http://www.cornify.com/extras</a></h3>
+	</li>
+	<li>
+		<h3>< script type="text/javascript" src="http:// www.cornify.com/js/cornifie.js"></script></h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Including the same content</h2>
+<ul>
+	<li>
+		<h3>What about the same header and footer over and over on your site?</h3>
+	</li>
+	<li>
+		<h3>use the php include(..) method</h3>
+	</li>
+	<li>
+		<h3>Can also use require_once(..)</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Exercise 3</h2>
+<ul>
+	<li>
+		<h3>Modify your page to include a header and a footer that you include with PHP</h3>
+	</li>
+	<li>
+		<h3>Then create another page that uses the same header and footer</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Exercise 4: Sending an Email</h2>
+<ul>
+	<li>
+		<h3>Create a form that lets people submit a subject and a message</h3>
+	</li>
+	<li>
+		<h3>Look at the mail command and send an email with a the subject and message</h3>
+	</li>
+	<li>
+		<h3><a href='http://php.net/manual/en/funcref.php' target='_blank'>http://php.net/manual/en/funcref.php</a></h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Databases</h2>
+<ul>
+	<li>
+		<h3>What is a RDBMS?</h3>
+	</li>
+	<li>
+		<h3>What do you need databases for?</h3>
+	</li>
+	<li>
+		<h3>MySQL</h3>
+	</li>
+	<li>
+		<h3>Not the only game in town there’s now NoSQL databases</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>SQL</h2>
+<ul>
+	<li>
+		<h3>The language for talking to databases</h3>
+	</li>
+	<li>
+		<h3>SELECT, UPDATE, INSERT, DELETE</h3>
+	</li>
+	<li>
+		<h3>SELECT * FROM mytable WHERE id=7</h3>
+	</li>
+	<li>
+		<h3><a href='http://w3schools.com/php/
+		php_mysql_intro.asp' target='_blank'>http://w3schools.com/php/
+		php_mysql_intro.asp</a></h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Exercise 5</h2>
+<ul>
+	<li>
+		<h3>Connect to a MySQL database and display the data in a table</h3>
+	</li>
+	<li>
+		<h3>http://w3schools.com/php/
+		php_mysql_select.asp</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>AJAX</h2>
+<ul>
+	<li>
+		<h3>Asynchronous Javascript &#38; XML</h3>
+	</li>
+	<li>
+		<h3>Method of talking to the server without reloading the whole page</h3>
+	</li>
+	<li>
+		<h3>Difficult to do cross browser</h3>
+	</li>
+	<li>
+		<h3>We’re going to use jQuery</h3>
+	</li>
+</ul>
+</article>
+
+
+<article class='slide slide-list'>
+<h2>Exercise 6:AJAX</h2>
+<ul>
+	<li>
+		<h3>Create two pages: one with a div with the id of time, the second with just the current time</h3>
+	</li>
+	<li>
+		<h3>Use $(“#container_id”).load(url) to load the content from one page to another</h3>
+	</li>
+	<li>
+		<h3><a href='http://api.jquery.com/load/' target='_blank'>http://api.jquery.com/load/</a></h3>
+	</li>
+</ul>
+</article>
+
+
+<article class='slide slide-homework'>
+<h2>Homework</h2>
+	
+	<h3 class='slide'>Coding</h3>
+       <ul class='slide'>
+			<li>
+      <h3>Rewrite 1-2 Sites into PHP</h3>
+			</li>
+		</ul>
+</ul>	
+	
+	
+</article>
+
+
+
+<script src='dist/coderdeck.js'></script>
+
+<script>
+	$(function() {
+		$.deck('.slide');
+	});
+</script>
+</body>
+</html>
