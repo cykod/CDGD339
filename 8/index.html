@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Ajax / Server Side - Web 2 CDGD339</title>
+	<meta name="viewport" content="width=1024">
+
+        <link rel="stylesheet" href="dist/coderdeck-core.min.css" type="text/css">
+  <link rel="stylesheet" id='style-theme-link' href="css/coderdeck.css" type="text/css" >
+
+  <script type="text/javascript" src="http://use.typekit.com/idq2tqo.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+	<script src='dist/jquery.min.js'></script>
+	<script src="dist/modernizr.js"></script>
+</head>
+<body class="deck-container">
+
+<script type='text/coderdeck' id='coderdeck-default'>
+  <html>
+    <head>
+      <script src='dist/jquery.min.js'>SCRIPTEND
+<link rel='stylesheet' href='reset.css' type='text/css'/>
+    </head>
+    <body>
+	    CODE
+    </body>
+</html>
+</script>
+
+
+<script type='text/coderdeck' id='coderdeck-style-nothing'>
+CODE
+</script> 	
+
+
+
+<article class='slide slide-subhead'>
+<h1>MassArt Web 2 </h1>
+
+<h2>
+  Forms<br/>
+  <a href='http://bit.ly/massart-web2-8'>http://bit.ly/massart-web2-8</a>
+</h2>
+</article>
+
+
+<!-- Apply a class of "coder-editor" to a textarea to make it show up as runnable code -->
+<article class='slide slide-list'>
+<h2>Today</h2>
+<ul>
+  <ul>
+  	<li class="slide">
+  		<h3>Review Homework</h3>
+  	</li>
+    <li class='slide'>
+      <h3>Discuss Final Projects</h3>
+    </li>
+		<li class="slide">
+    <h3>Forms</h3>
+		</li>
+    <li class='slide'>
+    <h3>Form Exercises</h3>
+    </li>
+  </ul>
+</ul>
+</article>
+
+
+<script>
+(function($){
+ 
+    $.fn.shuffle = function() {
+ 
+        var allElems = this.get(),
+            getRandom = function(max) {
+                return Math.floor(Math.random() * max);
+            },
+            shuffled = $.map(allElems, function(){
+                var random = getRandom(allElems.length),
+                    randEl = $(allElems[random]).clone(true)[0];
+                allElems.splice(random, 1);
+                return randEl;
+           });
+ 
+        this.each(function(i){
+            $(this).replaceWith($(shuffled[i]));
+        });
+ 
+        return $(shuffled);
+ 
+    };
+ 
+})(jQuery);
+
+function shuffleHomework(amt) {
+	if(amt <= 0) return;
+	$("#homework li").shuffle();
+	setTimeout(function() { shuffleHomework(amt - 1); },200);
+}
+
+	</script>
+
+<article class='slide slide-list'>
+<h2>Homework Review</h2>
+	<a href='javascript:shuffleHomework(10);'>Shuffle</a>
+<ul>
+  <ul id='homework'>
+  	<li >
+    <h3>Aimee <a href='http://aimeeb.github.com/'>http://aimeeb.github.com/</a></h3>
+  	</li>
+  	<li >
+    <h3>Christina <a href='http://cmyung.github.com'>http://cmyung.github.com</a></h3>
+  	</li>
+  	<li >
+    <h3>Leah <a href='http://leahbrunetto.github.com'>http://leahbrunetto.github.com</a></h3>
+  	</li>
+  	<li >
+    <h3>Meggles <a href='http://Meggles.github.com/Web-339/'>http://Meggles.github.com/Web-339/</a></h3>
+  	</li>
+  	<li >
+    <h3>Cheryl <a href='http://cmccaffrey.github.com/'>http://cmccaffrey.github.com/</a></h3>
+  	</li>
+  	<li >
+    <h3>Lauren <a href='http://laz231.github.com/'>http://laz231.github.com/</a></h3>
+  	</li>
+  	<li >
+    <h3>Rebecca <a href='http://salonstress.github.com'>http://salonstress.github.com</a></h3>
+  	</li>
+  	<li >
+    <h3>Amanda <a href='http://acacheung.github.com'>http://acacheung.github.com</a></h3>
+  	</li>
+    <li>
+    <h3>Kristina <a href='http://kristinasym.github.com'>http://kristinasym.github.com</a></h3>
+  </ul>
+</article>
+
+
+<article class='slide slide-list'>
+<h2>Forms</h2>
+<ul>
+	<li>
+		<h3>Solve the problem of getting data into a site</h3>
+	</li>
+	<li>
+		<h3>Requires a server (we covered this part)</h3>
+	</li>
+	<li>
+		<h3>Doesn't require javascript (for basic forms)</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Form Basics</h2>
+<ul>
+	<li>
+		<h3>Use the 'name' attribute to control what name gets sent to the server</h3>
+	</li>
+	<li>
+		<h3>Use 'value' set current value</h3>
+	</li>
+	<li>
+		<h3>Use the 'id' field to control via javascript.</h3>
+	</li>
+	<li>
+		<h3>Use a label tag for labels, add for attribute</h3>
+	</li>
+	<li>
+		<h3>Style via CSS</h3>
+    
+	</li>
+</ul>
+<pre class='prettyprint'>
+&lt;label for='email'&gt;Email&lt;/label&gt;
+&lt;input id='email' name='user[email]'type='text' size=’20’/&gt;
+</pre>
+</article>
+
+<article class='slide slide-list'>
+<h2>Basic Form Elements</h2>
+<ul>
+	<li><h3>Text Fields <input type='text' /></h3></li>
+	<li><h3>Radio Buttons <input type='radio' h3></li>
+	<li><h3>Checkboxes <input type='check' /></h3></li>
+  <li><h3>Select <select><option>Option A</option></select></h3></li>
+	<li><h3>Text areas <textarea>Content</textarea></h3></li>
+	<li><h3>Image (server side) <input type='image' /></h3></li>
+	<li><h3>Submit Button <input type='submit' /></h3></li>
+	<li><h3>Reset <input type='reset'/></h3></li>
+	<li><h3>Button <button>Button Text</button></h3></li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>HTML5 Form Elements</h2>
+<ul>
+	<li><h3>Adds a whole bunch of new types</h3></li>
+	<li><h3>Takes advantage of the fallback to a text field</h3></li>
+	<li><h3><a href='http://www.456bereastreet.com/lab/html5-
+	input-types/' target='_blank'>http://www.456bereastreet.com/lab/html5-input-types/</a></h3></li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>2 Type of Methods</h2>
+<ul>
+	<li>
+		<h3>Forms have "actions" - destination page</h3>
+	</li>
+	<li>
+		<h3>And Methods - way it's submitted</h3>
+	</li>
+	<li>
+		<h3>GET (which are put on the url string)</h3>
+		 <ul>
+			<li><h3><a href='http://mysite.com?arg1=A&arg2=B' target='_blank'>http://mysite.com?arg1=A&arg2=B</a></h3></li>
+		</ul>
+	</li>
+	<li>
+		<h3>POST (which are submitted in the body)</h3>
+		 <ul>
+			<li><h3>Take a look at a page submission via Firebug</h3></li>
+		</ul>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Exercise 1: A basic form</h2>
+<ul>
+	<li>
+		<h3>Create a basic form in php with a text field, a radio button, a select dropdown, a checkbox, and a submit button</h3>
+	</li>
+	<li>
+		<h3><a href='http://www.w3schools.com/html/html_forms.asp' target='_blank'>http://www.w3schools.com/html/html_forms.asp</a></h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Forms</h2>
+<ul>
+	<li>
+		<h3>Data submitted to the server</h3>
+	</li>
+	<li>
+		<h3>Accessible in php via $_REQUEST, $_POST, and $_GET</h3>
+	</li>
+	<li>
+		<h3>e.g.<br/>
+<pre class='prettyprint'>
+&lt;form action='?'method='post'&gt;
+ &lt;input type='text' name='field'/&gt;&lt;br/&gt;
+ &lt;input type='submit' value=’Go!’/&gt; 
+&lt;/form&gt;
+</pre>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Exercise 2: Adding Validation</h2>
+<ul>
+	<li>
+		<h3>Add a &lt;?php print_r($_REQUEST) ?> to see the values coming in</h3>
+	</li>
+	<li>
+		<h3>Make sure you have an email and a checkbox is checked</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Making it pretty</h2>
+<ul>
+	<li>
+		<h3><a href='http://www.alistapart.com/articles/prettyaccessibleforms' target='_blank'>http://www.alistapart.com/articles/prettyaccessibleforms</a></h3>
+	</li>
+	<li>
+		<h3>Let's wrap up our form - one way that make it easy to style is like the following:</h3>
+	</li>
+</ul>
+<pre class='prettyprint'>
+&lt;ol&gt;
+ &lt;li&gt;&lt;label for='email'&gt;Email&lt;/label&gt;
+ &lt;input type='text' name='email'/&gt; &lt;/li&gt;
+ ... 
+&lt;/ol&gt;
+</pre>
+</article>
+
+<article class='slide slide-list'>
+<h2>Exercise 3: Style it up!</h2>
+<ul>
+	<li>
+		<h3>Take your form and style it</h3>
+	</li>
+	<li>
+		<h3>Add in some headers and hints</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Exercise 4: Sending an Email</h2>
+<ul>
+	<li>
+		<h3>Create a form that lets people submit a subject and a message</h3>
+	</li>
+	<li>
+		<h3>Look at the mail command and send an email with a the subject and message</h3>
+	</li>
+	<li>
+		<h3><a href='http://php.net/manual/en/funcref.php' target='_blank'>http://php.net/manual/en/funcref.php</a></h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Ajax w/ JQuery (Mini Exercise)</h2>
+<ul>
+	<li>
+		<h3><a href='http://api.jquery.com/jQuery.ajax/' target='_blank'>http://api.jquery.com/jQuery.ajax/</a></h3>
+	</li>
+	<li>
+		<h3>Simplified to $("#container").load()</h3>
+	</li>
+	<li>
+		<h3>Try adding a button that loads some text</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Exercise 4: Form Submission Via Ajax</h2>
+<ul>
+	<li>
+		<h3><A href='http://api.jquery.com/serialize/' target='_blank'>http://api.jquery.com/serialize/</a></h3>
+	</li>
+	<li>
+		<h3>Serialize our form</h3>
+	</li>
+	<li>
+		<h3>Send it over to the server via ajax.</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Some notes on good programming.</h2>
+<ul>
+	<li>
+		<h3>What we've been doing, is not terribly good general practice.</h3>
+	</li>
+	<li>
+		<h3>What happens if we need another form somewhere else on a website?</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Modularity + Abstractions</h2>
+<ul>
+	<li>
+		<h3>"Extract" pieces of common code (called refactoring) into functions and separate files.</h3>
+	</li>
+	<li>
+		<h3>Use existing libraries and abstractions to help save the day.</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Some Abstractions</h2>
+<ul>
+	<li>
+		<h3>PHP + HTML in one file? Sort of ugly. Solution: <a href='http://www.smarty.net/' target='_blank'>http://www.smarty.net/</a></h3>
+	</li>
+	<li>
+		<h3>Common Libraries of code <a href='http://pear.php.net/' target='_blank'>http://pear.php.net/</a></h3>
+	</li>
+	<li>
+		<h3>The whole-shebang: <a href='http://cakephp.org/' target='_blank'>http://cakephp.org/</a></h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Want more? </h2>
+<ul>
+	<li class='slide'>
+  <h3>What about slider, drag and drop, date pickers, etc?</h3>
+	</li>
+	<li class='slide'>
+  <h3>There's a library for that: <a href='http://jqueryui.com/'>jQuery UI</a>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Mobile?</h2>
+<ul>
+	<li class='slide'>
+  <h3>There's a library for that: <a href='http://jquerymobile.com/'>jQuery Mobile</a>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-homework'>
+<h2>Homework</h2>
+	<ul>	
+			<li>
+      <h3>Styled contact forms on 2 websites</h3>
+			</li>
+			<li>
+      <h3>Finish your chops if you haven't already</h3>
+			</li>
+	</ul>
+</article>
+
+
+<script src='dist/coderdeck.min.js'></script>
+
+
+
+<script src='dist/coderdeck.js'></script>
+
+<script>
+	$(function() {
+		$.deck('.slide');
+	});
+</script>
+</body>
+</html>
