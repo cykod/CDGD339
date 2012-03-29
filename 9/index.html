@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>DBs - Web 2 CDGD339</title>
+	<meta name="viewport" content="width=1024">
+
+        <link rel="stylesheet" href="dist/coderdeck-core.min.css" type="text/css">
+  <link rel="stylesheet" id='style-theme-link' href="css/coderdeck.css" type="text/css" >
+
+  <script type="text/javascript" src="http://use.typekit.com/idq2tqo.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+	<script src='dist/jquery.min.js'></script>
+	<script src="dist/modernizr.js"></script>
+</head>
+<body class="deck-container">
+
+<script type='text/coderdeck' id='coderdeck-default'>
+  <html>
+    <head>
+      <script src='dist/jquery.min.js'>SCRIPTEND
+<link rel='stylesheet' href='reset.css' type='text/css'/>
+    </head>
+    <body>
+	    CODE
+    </body>
+</html>
+</script>
+
+
+<script type='text/coderdeck' id='coderdeck-style-nothing'>
+CODE
+</script> 	
+
+
+
+<article class='slide slide-subhead'>
+<h1>MassArt Web 2 </h1>
+
+<h2>
+  Databases<br/>
+  <a href='http://bit.ly/massart-web2-9'>http://bit.ly/massart-web2-9</a>
+</h2>
+</article>
+
+
+<!-- Apply a class of "coder-editor" to a textarea to make it show up as runnable code -->
+<article class='slide slide-list'>
+<h2>Today</h2>
+<ul>
+  <ul>
+  	<li class="slide">
+  		<h3>Review Homework</h3>
+  	</li>
+    <li class='slide'>
+      <h3>Discuss Final Projects</h3>
+    </li>
+    <li class='slide'>
+      <h3>MySQL + Ajax</h3>
+    </li>
+  </ul>
+</ul>
+</article>
+
+
+<script>
+(function($){
+ 
+    $.fn.shuffle = function() {
+ 
+        var allElems = this.get(),
+            getRandom = function(max) {
+                return Math.floor(Math.random() * max);
+            },
+            shuffled = $.map(allElems, function(){
+                var random = getRandom(allElems.length),
+                    randEl = $(allElems[random]).clone(true)[0];
+                allElems.splice(random, 1);
+                return randEl;
+           });
+ 
+        this.each(function(i){
+            $(this).replaceWith($(shuffled[i]));
+        });
+ 
+        return $(shuffled);
+ 
+    };
+ 
+})(jQuery);
+
+function shuffleHomework(amt) {
+	if(amt <= 0) return;
+	$("#homework li").shuffle();
+	setTimeout(function() { shuffleHomework(amt - 1); },200);
+}
+
+	</script>
+
+<article class='slide slide-list'>
+<h2>Homework Review</h2>
+	<a href='javascript:shuffleHomework(10);'>Shuffle</a>
+<ul>
+  <ul id='homework'>
+  	<li >
+    <h3>Aimee <a href='http://aimeeb.github.com/'>http://aimeeb.github.com/</a></h3>
+  	</li>
+  	<li >
+    <h3>Christina <a href='http://cmyung.github.com'>http://cmyung.github.com</a></h3>
+  	</li>
+  	<li >
+    <h3>Leah <a href='http://leahbrunetto.github.com'>http://leahbrunetto.github.com</a></h3>
+  	</li>
+  	<li >
+    <h3>Meggles <a href='http://Meggles.github.com/Web-339/'>http://Meggles.github.com/Web-339/</a></h3>
+  	</li>
+  	<li >
+    <h3>Cheryl <a href='http://cmccaffrey.github.com/'>http://cmccaffrey.github.com/</a></h3>
+  	</li>
+  	<li >
+    <h3>Lauren <a href='http://laz231.github.com/'>http://laz231.github.com/</a></h3>
+  	</li>
+  	<li >
+    <h3>Rebecca <a href='http://salonstress.github.com'>http://salonstress.github.com</a></h3>
+  	</li>
+  	<li >
+    <h3>Amanda <a href='http://acacheung.github.com'>http://acacheung.github.com</a></h3>
+  	</li>
+    <li>
+    <h3>Kristina <a href='http://kristinasym.github.com'>http://kristinasym.github.com</a></h3>
+  </ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Databases</h2>
+<ul>
+	<li>
+		<h3>What is a RDBMS?</h3>
+	</li>
+	<li>
+		<h3>What do you need databases for?</h3>
+	</li>
+	<li>
+		<h3>MySQL</h3>
+	</li>
+	<li>
+		<h3>Not the only game in town there’s now NoSQL databases</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>SQL</h2>
+<ul>
+	<li>
+		<h3>The language for talking to databases</h3>
+	</li>
+	<li>
+		<h3>SELECT, UPDATE, INSERT, DELETE</h3>
+	</li>
+	<li>
+		<h3>SELECT * FROM mytable WHERE id=7</h3>
+	</li>
+	<li>
+		<h3><a href='http://w3schools.com/php/
+		php_mysql_intro.asp' target='_blank'>http://w3schools.com/php/
+		php_mysql_intro.asp</a></h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Exercise 1</h2>
+<ul>
+	<li>
+  <h3>Create a database/table with phpMYadmin</h3>
+	</li>
+	<li>
+  <h3>Connect to a MySQL database via PHP</h3>
+	</li>
+  <li>
+  <h3>Display the data in a table</h3>
+  </li>
+	<li>
+  <h3><a href='http://w3schools.com/php/php_mysql_select.asp'>http://w3schools.com/php/php_mysql_select.asp</a></h3>
+	</li>
+</ul>
+</article>
+
+
+<article class='slide slide-list'>
+<h2>Exercise 2</h2>
+<ul>
+	<li>
+  <h3>Create another table with phpMYadmin</h3>
+	</li>
+	<li>
+  <h3>Connect to a MySQL database via PHP</h3>
+	</li>
+  <li>
+  <h3>Create a form in PHP</h3>
+  </li>
+  <li>
+  <h3>Submit the data from the form into the table</h3>
+  </li>
+  <li>
+  <h3>Bonus points: display it somewhere else</h3>
+  </li>
+	<li>
+  <h3><a href='http://w3schools.com/php/php_mysql_insert.asp'>http://w3schools.com/php/php_mysql_insert.asp</a></h3>
+	</li>
+</ul>
+</article>
+
+
+
+
+<article class='slide slide-list'>
+<h2>AJAX</h2>
+<ul>
+	<li>
+		<h3>Asynchronous Javascript &#38; XML</h3>
+	</li>
+	<li>
+		<h3>Method of talking to the server without reloading the whole page</h3>
+	</li>
+	<li>
+		<h3>Difficult to do cross browser</h3>
+	</li>
+	<li>
+		<h3>We’re going to use jQuery</h3>
+	</li>
+</ul>
+</article>
+
+
+<article class='slide slide-list'>
+<h2>Exercise 3:AJAX</h2>
+<ul>
+	<li>
+		<h3>Create two pages: one with a div with the id of time, the second with just the current time</h3>
+	</li>
+	<li>
+		<h3>Use $(“#container_id”).load(url) to load the content from one page to another</h3>
+	</li>
+	<li>
+		<h3><a href='http://api.jquery.com/load/' target='_blank'>http://api.jquery.com/load/</a></h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Exercise 4:AJAX + Form</h2>
+<ul>
+	<li>
+  <h3>Have your form from exercise 2 submit via Ajax</h3>
+	</li>
+	<li>
+		<h3><a href='http://api.jquery.com/post/' target='_blank'>http://api.jquery.com/post/</a></h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-homework'>
+<h2>Homework</h2>
+	
+	<h3 class='slide'>Coding</h3>
+       <ul class='slide'>
+			<li>
+      <h3>Add something data driven to a site</h3>
+      </li>
+			<li>
+      <h3>Work on your final projects</h3>
+      </li>
+		</ul>
+</ul>	
+	
+	
+</article>
+
+
+
+<script src='dist/coderdeck.js'></script>
+
+<script>
+	$(function() {
+		$.deck('.slide');
+	});
+</script>
+</body>
+</html>
