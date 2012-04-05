@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>DBs - Web 2 CDGD339</title>
+	<meta name="viewport" content="width=1024">
+
+        <link rel="stylesheet" href="dist/coderdeck-core.min.css" type="text/css">
+  <link rel="stylesheet" id='style-theme-link' href="css/coderdeck.css" type="text/css" >
+
+  <script type="text/javascript" src="http://use.typekit.com/idq2tqo.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+	<script src='dist/jquery.min.js'></script>
+	<script src="dist/modernizr.js"></script>
+</head>
+<body class="deck-container">
+
+<script type='text/coderdeck' id='coderdeck-default'>
+  <html>
+    <head>
+      <script src='dist/jquery.min.js'>SCRIPTEND
+<link rel='stylesheet' href='reset.css' type='text/css'/>
+    </head>
+    <body>
+	    CODE
+    </body>
+</html>
+</script>
+
+
+<script type='text/coderdeck' id='coderdeck-style-nothing'>
+CODE
+</script> 	
+
+
+
+<article class='slide slide-subhead'>
+<h1>MassArt Web 2 </h1>
+
+<h2>
+  Templating<br/>
+  CMSs<br/>
+  <a href='http://bit.ly/massart-web2-10'>http://bit.ly/massart-web2-10</a>
+</h2>
+</article>
+
+
+<!-- Apply a class of "coder-editor" to a textarea to make it show up as runnable code -->
+<article class='slide slide-list'>
+<h2>Today</h2>
+<ul>
+  <ul>
+  	<li class="slide">
+  		<h3>Review Homework</h3>
+  	</li>
+    <li class='slide'>
+    <h3>Templating: Smarty</h3>
+    </li>
+    <li class='slide'>
+    <h3>CMSs and frameworks</h3>
+    </li>
+  </ul>
+</ul>
+</article>
+
+
+<script>
+(function($){
+ 
+    $.fn.shuffle = function() {
+ 
+        var allElems = this.get(),
+            getRandom = function(max) {
+                return Math.floor(Math.random() * max);
+            },
+            shuffled = $.map(allElems, function(){
+                var random = getRandom(allElems.length),
+                    randEl = $(allElems[random]).clone(true)[0];
+                allElems.splice(random, 1);
+                return randEl;
+           });
+ 
+        this.each(function(i){
+            $(this).replaceWith($(shuffled[i]));
+        });
+ 
+        return $(shuffled);
+ 
+    };
+ 
+})(jQuery);
+
+function shuffleHomework(amt) {
+	if(amt <= 0) return;
+	$("#homework li").shuffle();
+	setTimeout(function() { shuffleHomework(amt - 1); },200);
+}
+
+	</script>
+
+<article class='slide slide-list'>
+<h2>Homework Review</h2>
+	<a href='javascript:shuffleHomework(10);'>Shuffle</a>
+<ul>
+  <ul id='homework'>
+  	<li >
+    <h3>Aimee <a href='http://aimeeb.github.com/'>http://aimeeb.github.com/</a></h3>
+  	</li>
+  	<li >
+    <h3>Christina <a href='http://cmyung.github.com'>http://cmyung.github.com</a></h3>
+  	</li>
+  	<li >
+    <h3>Leah <a href='http://leahbrunetto.github.com'>http://leahbrunetto.github.com</a></h3>
+  	</li>
+  	<li >
+    <h3>Meggles <a href='http://Meggles.github.com/Web-339/'>http://Meggles.github.com/Web-339/</a></h3>
+  	</li>
+  	<li >
+    <h3>Cheryl <a href='http://cmccaffrey.github.com/'>http://cmccaffrey.github.com/</a></h3>
+  	</li>
+  	<li >
+    <h3>Lauren <a href='http://laz231.github.com/'>http://laz231.github.com/</a></h3>
+  	</li>
+  	<li >
+    <h3>Rebecca <a href='http://salonstress.github.com'>http://salonstress.github.com</a></h3>
+  	</li>
+  	<li >
+    <h3>Amanda <a href='http://acacheung.github.com'>http://acacheung.github.com</a></h3>
+  	</li>
+    <li>
+    <h3>Kristina <a href='http://kristinasym.github.com'>http://kristinasym.github.com</a></h3>
+  </ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Templating</h2>
+<ul>
+	<li>
+  <h3>Provide a clear separation between logic and content</h3>
+	</li>
+	<li>
+  <h3>The logic doesn't care how it's displayed</h3>
+	</li>
+	<li>
+  <h3>The view doesn't care how you get the data</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Smarty</h2>
+<ul>
+	<li>
+  <h3>A templating language for PHP</h3>
+	</li>
+	<li>
+  <h3>Focused only on the view</h3>
+	</li>
+	<li>
+  <h3>Easily extensible via plugins</h3>
+	</li>
+	<li>
+  <h3><a href='http://www.smarty.net/'>Smarty</a>  | <a href='http://www.smarty.net/docs/en/'>Smarty Docs</a></h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Exercise 1</h2>
+<ul>
+	<li>
+  <h3>Get smarty up and running on a site</h3>
+	</li>
+	<li>
+  <h3><a href='http://www.smarty.net/download'>Download smarty</a>
+	</li>
+  <li>
+  <h3>Copy the lib directory and all stuff in the subdirectory</h3>
+  </li>
+	<li>
+  <h3>Change the permissions on the templates_c directory to allow writes</h3>
+	</li>
+</ul>
+</article>
+
+
+<article class='slide slide-list'>
+<h2>Exercise 2</h2>
+<ul>
+	<li>
+  <h3>Create a template your own index.tpl file</h3>
+	</li>
+	<li>
+  <h3>separate out header.tpl and footer.tpl files and include them</h3>
+	</li>
+</ul>
+</article>
+
+
+<article class='slide slide-list'>
+<h2>Exercise 3</h2>
+<ul>
+	<li>
+  <h3>Pull some data from the database of recipes</h3>
+	</li>
+	<li>
+  <h3>Create a template for the individual recipe</h3>
+	</li>
+	<li>
+  <h3>Display the recipe on its own page</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+  <h1>Frameworks</h1>
+<ul>
+	<li>
+  <h3>Step above just writing straight PHP</h3>
+	</li>
+	<li>
+		<h3>Big 3:</h3>
+		<ul>
+			<li class='slide'>
+      <h3><a href='http://framework.zend.com/'>Zend Framework</a>
+			</li>
+			<li class='slide'>
+      <h3><a href='http://cakephp.org/'>CakePHP</a>
+			</li>
+			<li class='slide'>
+      <h3><a href='http://codeigniter.com/'>Code Igniter</a>
+			</li>
+		</ul>
+	</li>
+</ul>
+</article>
+
+
+
+<article class='slide slide-list'>
+<h1>Content Mangement (CMS)</h1>
+<ul>
+	<li>
+		<h3>Big variation in complexity and capability</h3>
+	</li>
+	<li>
+		<h3>Big 3:</h3>
+		<ul>
+			<li class='slide'>
+				<h3>Wordpress</h3>
+			</li>
+			<li class='slide'>
+				<h3>Drupal</h3>
+			</li>
+			<li class='slide'>
+				<h3>Joomla</h3>
+			</li>
+		</ul>
+	</li>
+</ul>
+</article>
+
+
+<article class='slide slide-list'>
+<h2>Exercise 4 (Time allowing)</h2>
+<ul>
+	<li>
+  <h3>Download Wordpress</h3>
+	</li>
+	<li>
+  <h3>Upload to the site</h3>
+	</li>
+	<li>
+  <h3>Install and get running</h3>
+	</li>
+  <li>
+  <h3><a href='http://codex.wordpress.org/Theme_Development'>Theming</a></h3?
+</ul>
+</article>
+
+<article class='slide slide-homework'>
+<h2>Homework</h2>
+	
+	<h3 class='slide'>Coding</h3>
+       <ul class='slide'>
+			<li>
+      <h3>Templatize your site</h3>
+      </li>
+			<li>
+      <h3>Work on your final projects</h3>
+      </li>
+		</ul>
+</ul>	
+	
+	
+</article>
+
+
+
+<script src='dist/coderdeck.js'></script>
+
+<script>
+	$(function() {
+		$.deck('.slide');
+	});
+</script>
+</body>
+</html>
