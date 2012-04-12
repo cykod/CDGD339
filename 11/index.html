@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>The Almighty Wordpress - Web 2 CDGD339</title>
+	<meta name="viewport" content="width=1024">
+
+        <link rel="stylesheet" href="dist/coderdeck-core.min.css" type="text/css">
+  <link rel="stylesheet" id='style-theme-link' href="css/coderdeck.css" type="text/css" >
+
+  <script type="text/javascript" src="http://use.typekit.com/idq2tqo.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+	<script src='dist/jquery.min.js'></script>
+	<script src="dist/modernizr.js"></script>
+</head>
+<body class="deck-container">
+
+<script type='text/coderdeck' id='coderdeck-default'>
+  <html>
+    <head>
+      <script src='dist/jquery.min.js'>SCRIPTEND
+<link rel='stylesheet' href='reset.css' type='text/css'/>
+    </head>
+    <body>
+	    CODE
+    </body>
+</html>
+</script>
+
+
+<script type='text/coderdeck' id='coderdeck-style-nothing'>
+CODE
+</script> 	
+
+
+
+<article class='slide slide-subhead'>
+<h1>MassArt Web 2 </h1>
+
+<h2>
+  The Almighty Wordpress<br/>
+  <a href='http://bit.ly/massart-web2-10'>http://bit.ly/massart-web2-10</a>
+</h2>
+</article>
+
+
+<!-- Apply a class of "coder-editor" to a textarea to make it show up as runnable code -->
+<article class='slide slide-list'>
+<h2>Today</h2>
+<ul>
+  <ul>
+  	<li class="slide">
+  		<h3>Review Homework</h3>
+  	</li>
+    <li class='slide'>
+    <h3>Wordpress Install</h3>
+    </li>
+    <li class='slide'>
+    <h3>Wordpress Templating</h3>
+    </li>
+  </ul>
+</ul>
+</article>
+
+
+<script>
+(function($){
+ 
+    $.fn.shuffle = function() {
+ 
+        var allElems = this.get(),
+            getRandom = function(max) {
+                return Math.floor(Math.random() * max);
+            },
+            shuffled = $.map(allElems, function(){
+                var random = getRandom(allElems.length),
+                    randEl = $(allElems[random]).clone(true)[0];
+                allElems.splice(random, 1);
+                return randEl;
+           });
+ 
+        this.each(function(i){
+            $(this).replaceWith($(shuffled[i]));
+        });
+ 
+        return $(shuffled);
+ 
+    };
+ 
+})(jQuery);
+
+function shuffleHomework(amt) {
+	if(amt <= 0) return;
+	$("#homework li").shuffle();
+	setTimeout(function() { shuffleHomework(amt - 1); },200);
+}
+
+	</script>
+
+<article class='slide slide-list'>
+<h2>Homework Review</h2>
+	<a href='javascript:shuffleHomework(10);'>Shuffle</a>
+<ul>
+  <ul id='homework'>
+  	<li >
+    <h3>Aimee <a href='http://aimeeb.github.com/'>http://aimeeb.github.com/</a></h3>
+  	</li>
+  	<li >
+    <h3>Christina <a href='http://cmyung.github.com'>http://cmyung.github.com</a></h3>
+  	</li>
+  	<li >
+    <h3>Leah <a href='http://leahbrunetto.github.com'>http://leahbrunetto.github.com</a></h3>
+  	</li>
+  	<li >
+    <h3>Meggles <a href='http://Meggles.github.com/Web-339/'>http://Meggles.github.com/Web-339/</a></h3>
+  	</li>
+  	<li >
+    <h3>Cheryl <a href='http://cmccaffrey.github.com/'>http://cmccaffrey.github.com/</a></h3>
+  	</li>
+  	<li >
+    <h3>Lauren <a href='http://laz231.github.com/'>http://laz231.github.com/</a></h3>
+  	</li>
+  	<li >
+    <h3>Rebecca <a href='http://salonstress.github.com'>http://salonstress.github.com</a></h3>
+  	</li>
+  	<li >
+    <h3>Amanda <a href='http://acacheung.github.com'>http://acacheung.github.com</a></h3>
+  	</li>
+    <li>
+    <h3>Kristina <a href='http://kristinasym.github.com'>http://kristinasym.github.com</a></h3>
+  </ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Wordpress Install</h2>
+<ul>
+	<li>
+  <h3>You guys should all have a ready-to-setup wordpress install in your directories /wordpress </h3>
+	</li>
+	<li>
+  <h3>Let's go through the steps of getting that setup</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Wordpress Tour</h2>
+<ul>
+	<li>
+  <h3>Write a post</h3>
+	</li>
+	<li>
+  <h3>Install a plugin</h3>
+	</li>
+	<li>
+  <h3>Pick a theme</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+  <h2>Theming</h2>
+<ul>
+	<li>
+  <h3><a href='http://yoast.com/wordpress-theme-anatomy/'>Anatomy of a Theme</a></h3>
+	</li>
+	<li>
+  <h3><a href='http://codex.wordpress.org/Stepping_Into_Templates'>Stepping into Templates</a></h3>
+	</li>
+  <li>
+  <h3><a href='http://codex.wordpress.org/Stepping_Into_Template_Tags'>Stepping into Template Tags</a></h3>
+  </li>
+  <li>
+  <h3><a href='http://codex.wordpress.org/Child_Themes#Example_of_a_basic_Child_Theme'>Creating a child theme</a></h3>
+  </li>
+  <h3><a href='http://codex.wordpress.org/Creating_a_Static_Front_Page'>Static front page</a></h3>
+  </li>
+  <li>
+  <h3><a href='http://codex.wordpress.org/The_Loop_in_Action'>The Loop</a></h3>
+  </li>
+</ul>
+</article>
+
+<article class='slide slide-homework'>
+<h2>Homework</h2>
+	
+	<h3 class='slide'>Coding</h3>
+       <ul class='slide'>
+			<li>
+      <h3>Work on your final projects</h3>
+      </li>
+		</ul>
+</ul>	
+	
+	
+</article>
+
+
+
+<script src='dist/coderdeck.js'></script>
+
+<script>
+	$(function() {
+		$.deck('.slide');
+	});
+</script>
+</body>
+</html>
